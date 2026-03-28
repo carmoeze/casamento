@@ -1,1 +1,2676 @@
-# casamento
+<html lang="pt"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carmo &amp; Zé Luís · 20 Junho 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&amp;family=Montserrat:wght@200;300;400;500&amp;family=Raleway:wght@200;300;400;500&amp;display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --teal:      #88BBDA;
+      --teal-dark: #61869C;
+      --teal-light:#A5CCE3;
+      --cream:     #F9F5F0;
+      --warm-white:#FDFBF8;
+      --text-dark: #2C3E35;
+      --text-mid:  #4A5E56;
+      --gold:      #C9A96E;
+      --sage:      #8BAF8B;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(136,187,218,0.92);
+      backdrop-filter: blur(8px);
+      display: flex; justify-content: center; gap: 2.5rem;
+      padding: 1rem 2rem;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: .75rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      font-weight: 300;
+      transition: opacity .2s;
+    }
+    nav a:hover { opacity: .7; }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      background: transparent;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 6rem 2rem 8rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+
+
+    .hero-flower {
+      width: min(340px, 70vw);
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      filter: drop-shadow(0 8px 24px rgba(0,0,0,.12));
+    }
+
+    .hero-names {
+      color: #fff;
+      font-size: clamp(1.4rem, 4.5vw, 2.2rem);
+      letter-spacing: .35em;
+      font-weight: 300;
+      text-transform: uppercase;
+      font-family: 'Montserrat', sans-serif;
+      text-align: center;
+      text-shadow: 0 1px 12px rgba(0,0,0,.5), 0 0 4px rgba(0,0,0,.3);
+    }
+
+    .hero-date {
+      color: rgba(255,255,255,.9);
+      font-size: .95rem;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      margin-top: 1.8rem;
+      font-weight: 300;
+      text-shadow: 0 1px 8px rgba(0,0,0,.5);
+    }
+
+    .hero-divider {
+      width: 60px;
+      height: 1px;
+      background: rgba(255,255,255,.25);
+      margin: 2rem auto;
+    }
+
+    /* ─── Hero content z-index (above admin photo overlay) ─── */
+    .hero-names, .hero-flower, .hero-date, .hero-divider, .countdown {
+      position: relative; z-index: 2;
+    }
+
+    /* ─── Hero content above admin overlay ─── */
+    .hero-names, .hero-flower, .hero-date, .hero-divider, .countdown {
+      position: relative; z-index: 2;
+    }
+
+    /* ── Foto circular do casal (hero portrait) ── */
+    .hero-portrait {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 3px solid rgba(255,255,255,.55);
+      margin: 0 auto 1.8rem;
+      position: relative;
+      z-index: 2;
+      overflow: hidden;
+      display: none;
+      box-shadow: 0 4px 24px rgba(0,0,0,.25);
+    }
+    .hero-portrait.has-photo { display: block; }
+    body.admin-photo-mode .hero-portrait {
+      display: block;
+      background: rgba(255,255,255,.08);
+      cursor: pointer;
+    }
+    .hero-portrait img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+    }
+    .hero-portrait-edit {
+      display: none;
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,.42);
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: #fff;
+      font-size: .65rem;
+      letter-spacing: .1em;
+      gap: .3rem;
+    }
+    .hero-portrait-edit span { font-size: 1.5rem; line-height: 1; }
+    body.admin-photo-mode .hero-portrait .hero-portrait-edit { display: flex; }
+
+    /* ── COUNTDOWN ── */
+    .countdown {
+      display: flex; gap: 2rem; justify-content: center;
+      margin-top: 2.5rem;
+    }
+    .countdown-item { text-align: center; color: #fff; text-shadow: 0 1px 8px rgba(0,0,0,.5); }
+    .countdown-item span.num {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(2.2rem, 6vw, 3.4rem);
+      font-weight: 300;
+      line-height: 1;
+    }
+    .countdown-item span.label {
+      font-size: .6rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      opacity: .75;
+      margin-top: .3rem;
+      display: block;
+    }
+    .countdown-sep {
+      font-family: 'Montserrat', sans-serif;
+      color: rgba(0,0,0,.2);
+      font-size: 2.5rem;
+      line-height: 1.4;
+    }
+
+    /* ── SECTION WRAPPER ── */
+    .section {
+      padding: 5rem 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-weight: 400;
+      color: var(--teal-dark);
+      margin-bottom: .6rem;
+    }
+    .section-title em {
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    .section-sub {
+      text-align: center;
+      font-size: .72rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 2.5rem;
+    }
+
+    .leaf-divider {
+      display: flex; align-items: center; justify-content: center;
+      gap: 1rem; margin: 2rem auto;
+    }
+    .leaf-divider::before, .leaf-divider::after {
+      content: '';
+      flex: 1; max-width: 120px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold));
+    }
+    .leaf-divider::after { background: linear-gradient(to left, transparent, var(--gold)); }
+
+    /* ── DETAILS ── */
+    #detalhes { background: var(--warm-white); }
+    #detalhes .section { max-width: 900px; }
+
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    .event-card {
+      background: #fff;
+      border: 1px solid rgba(136,187,218,.18);
+      border-radius: 8px;
+      overflow: hidden;
+      text-align: center;
+      box-shadow: 0 2px 20px rgba(0,0,0,.04);
+      transition: transform .25s, box-shadow .25s;
+    }
+    .event-card:hover { transform: translateY(-3px); box-shadow: 0 6px 28px rgba(0,0,0,.07); }
+
+    .event-card-body { padding: 1.8rem 2rem 2rem; }
+
+    /* Photo slot at top of event card */
+    .event-photo {
+      width: 100%;
+      height: 300px;
+      background-size: cover;
+      background-position: center;
+      background-color: var(--teal-light);
+      position: relative;
+      overflow: hidden;
+    }
+    .event-photo-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--teal-light) 0%, var(--teal) 100%);
+      color: rgba(255,255,255,.7);
+      font-size: .7rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      gap: .5rem;
+    }
+    .event-photo-placeholder span { font-size: 2rem; }
+
+    /* Photo slot at top of event card — when image is set */
+    .event-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .event-icon {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .event-card h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.4rem;
+      color: var(--teal-dark);
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+
+    .event-time {
+      font-size: .72rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: .9rem;
+    }
+
+    .event-card p {
+      font-size: .88rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
+
+    .event-card a {
+      display: inline-block;
+      margin-top: 1rem;
+      font-size: .68rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--teal);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(136,187,218,.4);
+      padding-bottom: 2px;
+      transition: color .2s;
+    }
+    .event-card a:hover { color: var(--teal-dark); }
+
+    /* ── RSVP ── */
+    #rsvp { background: var(--teal); }
+    #rsvp, #rsvp * { font-family: 'Montserrat', sans-serif; }
+    #rsvp .section-title { color: #fff; }
+    #rsvp .section-sub { color: rgba(255,255,255,.65); }
+    #rsvp .leaf-divider::before { background: linear-gradient(to right, transparent, rgba(255,255,255,.4)); }
+    #rsvp .leaf-divider::after  { background: linear-gradient(to left, transparent, rgba(255,255,255,.4)); }
+
+    .rsvp-form {
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 6px;
+      padding: 2.5rem 2rem;
+      backdrop-filter: blur(4px);
+    }
+
+    .form-row { display: grid; gap: 1rem; margin-bottom: 1rem; }
+    .form-row.two { grid-template-columns: 1fr 1fr; }
+    @media(max-width:560px) { .form-row.two { grid-template-columns: 1fr; } }
+
+    .form-group { display: flex; flex-direction: column; gap: .4rem; }
+
+    .form-group label {
+      font-size: .65rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.75);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 3px;
+      padding: .7rem .9rem;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-size: .88rem;
+      outline: none;
+      transition: border-color .2s, background .2s;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: rgba(255,255,255,.45); }
+    .form-group select option { color: var(--text-dark); background: #fff; }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: rgba(255,255,255,.6);
+      background: rgba(255,255,255,.2);
+    }
+    .form-group textarea { resize: vertical; min-height: 90px; }
+
+    .btn {
+      display: inline-block;
+      padding: .85rem 2.5rem;
+      font-size: .7rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 400;
+      cursor: pointer;
+      border: none;
+      border-radius: 3px;
+      transition: opacity .2s, transform .15s;
+    }
+    .btn:hover { opacity: .85; transform: translateY(-1px); }
+    .btn:active { transform: translateY(0); }
+
+    .btn-light {
+      background: #fff;
+      color: var(--teal-dark);
+    }
+
+    .btn-teal {
+      background: var(--teal);
+      color: #fff;
+    }
+
+    .form-footer {
+      display: flex;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+
+    .rsvp-success {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+      color: #fff;
+    }
+    .rsvp-success h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 300;
+      margin-bottom: .5rem;
+    }
+    .rsvp-success p { font-size: .88rem; opacity: .8; }
+
+    /* ── GIFT LIST ── */
+    #presentes { background: var(--cream); }
+
+    .gift-intro {
+      text-align: center;
+      color: var(--text-mid);
+      font-size: .9rem;
+      line-height: 1.8;
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .gift-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.4rem;
+    }
+
+    .gift-card {
+      background: #fff;
+      border: 1px solid rgba(0,0,0,.07);
+      border-radius: 6px;
+      padding: 1.6rem 1.5rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,.04);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .gift-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.07); }
+
+    .gift-card.completed {
+      border-color: rgba(136,187,218,.35);
+      background: linear-gradient(135deg, #fff 60%, rgba(136,187,218,.06));
+    }
+
+    .gift-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: .8rem;
+    }
+
+    .gift-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.15rem;
+      color: var(--text-dark);
+      font-weight: 400;
+      line-height: 1.3;
+      flex: 1;
+    }
+
+    .gift-badge {
+      font-size: .6rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: .25rem .6rem;
+      border-radius: 20px;
+      margin-left: .8rem;
+      white-space: nowrap;
+    }
+    .gift-badge.offered { background: var(--teal); color: #fff; }
+    .gift-badge.partial { background: rgba(201,169,110,.15); color: var(--gold); border: 1px solid rgba(201,169,110,.3); }
+    .gift-badge.open    { background: rgba(0,0,0,.04); color: var(--text-mid); }
+
+    .gift-desc {
+      font-size: .82rem;
+      color: var(--text-mid);
+      line-height: 1.65;
+      margin-bottom: 1.1rem;
+    }
+
+    .gift-progress-wrap { margin-bottom: .7rem; }
+
+    .gift-progress-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: .68rem;
+      color: var(--text-mid);
+      margin-bottom: .35rem;
+      letter-spacing: .03em;
+    }
+
+    .progress-bar-bg {
+      background: #EDEAE4;
+      border-radius: 99px;
+      height: 7px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      border-radius: 99px;
+      background: linear-gradient(90deg, var(--teal-light), var(--teal-dark));
+      transition: width .6s ease;
+    }
+    .gift-card.completed .progress-bar-fill {
+      background: linear-gradient(90deg, var(--teal), #2E8B9A);
+    }
+
+    .gift-name-link {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(0,0,0,.12);
+      transition: border-color .2s, color .2s;
+    }
+    .gift-name-link:hover {
+      color: var(--teal-dark);
+      border-color: var(--teal);
+    }
+
+    .gift-contribute-btn {
+      display: inline-block;
+      margin-top: .5rem;
+      font-size: .65rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--teal);
+      cursor: pointer;
+      background: none;
+      border: none;
+      border-bottom: 1px solid rgba(136,187,218,.3);
+      padding-bottom: 2px;
+      font-family: 'Montserrat', sans-serif;
+      transition: color .2s;
+    }
+    .gift-contribute-btn:hover { color: var(--teal-dark); }
+
+    /* Admin panel */
+    /* ── Category headers ── */
+    .gift-category {
+      width: 100%;
+      margin: 1.5rem 0 1rem;
+    }
+    .gift-category h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--teal-dark);
+      border-bottom: 1px solid rgba(136,187,218,.2);
+      padding-bottom: .5rem;
+      margin-bottom: 1rem;
+    }
+    .gift-category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .gift-card.pending-item {
+      opacity: .8;
+      border-style: dashed;
+    }
+    .gift-badge.pending { background: rgba(0,0,0,.04); color: var(--text-mid); border: 1px dashed rgba(0,0,0,.18); }
+
+    .gift-link {
+      display: inline-block;
+      margin-top: .6rem;
+      font-size: .65rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--teal);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(136,187,218,.3);
+      padding-bottom: 2px;
+      transition: color .2s;
+    }
+    .gift-link:hover { color: var(--teal-dark); }
+
+    .gift-no-price {
+      font-size: .78rem;
+      color: var(--text-mid);
+      font-style: italic;
+      margin-top: .4rem;
+    }
+
+    .admin-toggle {
+      text-align: center;
+      margin-top: 3rem;
+    }
+    .admin-toggle button {
+      background: none;
+      border: 1px solid rgba(0,0,0,.12);
+      border-radius: 3px;
+      padding: .5rem 1.2rem;
+      font-size: .65rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+      transition: background .2s, color .2s;
+    }
+    .admin-toggle button:hover { background: rgba(0,0,0,.04); }
+
+    /* Modal */
+    .modal-overlay {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,.45);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .modal-overlay.open { display: flex; }
+
+    .modal {
+      background: #fff;
+      border-radius: 8px;
+      padding: 2rem;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.18);
+    }
+
+    .modal h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.4rem;
+      color: var(--teal-dark);
+      margin-bottom: .4rem;
+    }
+    .modal p.modal-sub {
+      font-size: .8rem;
+      color: var(--text-mid);
+      margin-bottom: 1.4rem;
+    }
+    .modal label {
+      font-size: .68rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      display: block;
+      margin-bottom: .4rem;
+    }
+    .modal input[type="number"],
+    .modal input[type="password"],
+    .modal input[type="text"] {
+      width: 100%;
+      border: 1px solid rgba(0,0,0,.15);
+      border-radius: 3px;
+      padding: .7rem .9rem;
+      font-size: .95rem;
+      font-family: 'Montserrat', sans-serif;
+      outline: none;
+      color: var(--text-dark);
+      transition: border-color .2s;
+    }
+    .modal input:focus { border-color: var(--teal); }
+    .modal-actions {
+      display: flex; gap: .8rem; margin-top: 1.2rem; justify-content: flex-end;
+    }
+    .modal-actions button {
+      padding: .6rem 1.4rem;
+      border-radius: 3px;
+      border: none;
+      font-family: 'Montserrat', sans-serif;
+      font-size: .75rem;
+      letter-spacing: .1em;
+      cursor: pointer;
+    }
+    .btn-cancel { background: rgba(0,0,0,.06); color: var(--text-mid); }
+    .btn-save   { background: var(--teal); color: #fff; }
+    .modal .error-msg {
+      color: #c0392b;
+      font-size: .75rem;
+      margin-top: .5rem;
+      display: none;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--teal-dark);
+      color: rgba(255,255,255,.7);
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+    footer .footer-names {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.4rem;
+      color: #fff;
+      font-weight: 300;
+      letter-spacing: .2em;
+      margin-bottom: .5rem;
+    }
+    footer p { font-size: .72rem; letter-spacing: .1em; }
+
+    /* ── SCROLL ANIMATION ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: none; }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:600px) {
+      .countdown { gap: 1rem; }
+      .countdown-sep { display: none; }
+    }
+
+    /* ═══════════════════════════════════════
+       PHOTO BANNERS
+    ═══════════════════════════════════════ */
+    .photo-banner {
+      position: relative;
+      width: 100%;
+      height: clamp(280px, 40vw, 460px);
+      overflow: hidden;
+      background: var(--teal-dark);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 3.5rem;
+    }
+    .photo-banner-bg {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+    }
+    .photo-banner-bg img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+    }
+    .photo-banner-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,.04) 0%, rgba(0,0,0,.48) 100%);
+    }
+    .photo-banner-body {
+      position: relative; z-index: 2;
+      text-align: center; color: #fff;
+    }
+    .photo-banner-body .sub {
+      font-size: .72rem; letter-spacing: .25em;
+      text-transform: uppercase; opacity: .8;
+      margin-bottom: .6rem; display: block;
+    }
+    .photo-banner-body h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 300;
+      text-shadow: 0 2px 20px rgba(0,0,0,.3);
+    }
+    .photo-banner-body h2 em { font-style: italic; }
+
+    /* Admin photo-edit overlay on banners */
+    .photo-slot-admin {
+      display: none;
+      position: absolute; inset: 0; z-index: 5;
+      cursor: pointer;
+      border: 2px dashed rgba(255,255,255,.45);
+    }
+    .photo-slot-admin:hover { background: rgba(0,0,0,.28); }
+    .photo-slot-admin .slot-label {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      color: #fff; font-size: .68rem;
+      letter-spacing: .18em; text-transform: uppercase;
+      text-align: center; pointer-events: none;
+      text-shadow: 0 1px 6px rgba(0,0,0,.6);
+    }
+    .photo-slot-admin.drag-over {
+      background: rgba(136,187,218,.3);
+      border-color: #fff;
+    }
+    body.admin-photo-mode .photo-slot-admin { display: block; }
+
+    /* Admin photo-edit overlay on event cards */
+    .event-photo-slot {
+      width: 100%; height: 100%;
+      position: relative; overflow: hidden;
+    }
+    .event-photo-slot img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+    }
+    .event-photo-slot .slot-edit {
+      display: none;
+      position: absolute; inset: 0;
+      background: rgba(0,0,0,.42);
+      align-items: center; justify-content: center;
+      color: #fff; font-size: .65rem;
+      letter-spacing: .18em; text-transform: uppercase;
+      cursor: pointer;
+    }
+    body.admin-photo-mode .event-photo-slot .slot-edit { display: flex; }
+    body.admin-photo-mode .event-photo-slot { cursor: pointer; }
+
+    /* ─── MEXICO PHOTO STRIP ─── */
+    .mexico-strip {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: .45rem;
+      height: 148px;
+      border-radius: 6px;
+      overflow: hidden;
+      margin: 0 0 2rem;
+    }
+    .mexico-strip img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+    }
+
+    /* ─── A NOSSA CASA HEADER ─── */
+    .nossa-casa-header {
+      position: relative;
+      height: 180px;
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 0 0 1.5rem;
+      background: linear-gradient(135deg, var(--teal-light) 0%, var(--teal-dark) 100%);
+    }
+    .nossa-casa-header img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      position: absolute; inset: 0;
+    }
+    .nossa-casa-header .nch-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,.05), rgba(0,0,0,.42));
+    }
+    .nossa-casa-header .nch-text {
+      position: relative; z-index: 2;
+      height: 100%;
+      display: flex; flex-direction: column;
+      align-items: flex-start; justify-content: flex-end;
+      padding: 1.4rem 2rem;
+      color: #fff;
+    }
+    .nossa-casa-header .nch-text .sub {
+      font-size: .65rem; letter-spacing: .2em;
+      text-transform: uppercase; opacity: .8;
+    }
+    .nossa-casa-header .nch-text h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.9rem; font-weight: 300; margin-top: .2rem;
+    }
+
+    /* ─── GIFT PHOTO DUO (side by side) ─── */
+    .gift-photo-duo {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: .6rem;
+      margin: 0 0 2rem;
+      height: 320px;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .gift-photo-duo > div {
+      position: relative;
+      overflow: hidden;
+      border-radius: 6px;
+    }
+    @media(max-width:600px) {
+      .gift-photo-duo {
+        grid-template-columns: 1fr;
+        height: auto;
+      }
+      .gift-photo-duo > div { height: 220px; }
+    }
+
+    /* ─── LUA DE MEL (left panel) ─── */
+    .duo-lua-mel {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: .35rem;
+      position: relative;
+    }
+    .duo-lua-mel img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+      display: block; min-height: 0;
+    }
+    .duo-lua-mel .duo-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,.04), rgba(0,0,0,.48));
+      pointer-events: none;
+    }
+    .duo-lua-mel .duo-text {
+      position: absolute; bottom: 0; left: 0; z-index: 2;
+      padding: 1.2rem 1.4rem;
+      color: #fff; pointer-events: none;
+    }
+    .duo-lua-mel .duo-text .sub {
+      font-size: .6rem; letter-spacing: .2em;
+      text-transform: uppercase; opacity: .8;
+    }
+    .duo-lua-mel .duo-text h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.6rem; font-weight: 300; margin-top: .15rem;
+    }
+
+    /* ─── A NOSSA CASA (right panel) ─── */
+    .duo-nossa-casa {
+      background: linear-gradient(135deg, var(--teal-light) 0%, var(--teal-dark) 100%);
+    }
+    .duo-nossa-casa img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      position: absolute; inset: 0;
+    }
+    .duo-nossa-casa .duo-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,.05), rgba(0,0,0,.42));
+    }
+    .duo-nossa-casa .duo-text {
+      position: absolute; bottom: 0; left: 0; z-index: 2;
+      padding: 1.2rem 1.4rem;
+      color: #fff;
+    }
+    .duo-nossa-casa .duo-text .sub {
+      font-size: .6rem; letter-spacing: .2em;
+      text-transform: uppercase; opacity: .8;
+    }
+    .duo-nossa-casa .duo-text h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.6rem; font-weight: 300; margin-top: .15rem;
+    }
+
+    /* ─── LUA DE MEL BANNER ─── */
+    .lua-mel-banner {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 2.5rem 0 1.5rem;
+      background: var(--teal-dark);
+    }
+    .lua-mel-banner .mexico-strip { border-radius: 0; margin: 0; height: 180px; }
+    .lua-mel-banner .overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,.04), rgba(0,0,0,.48));
+    }
+    .lua-mel-banner .text {
+      position: absolute; inset: 0; z-index: 2;
+      display: flex; flex-direction: column;
+      align-items: flex-start; justify-content: flex-end;
+      padding: 1.4rem 2rem;
+      color: #fff;
+    }
+    .lua-mel-banner .text .sub {
+      font-size: .65rem; letter-spacing: .2em;
+      text-transform: uppercase; opacity: .8;
+    }
+    .lua-mel-banner .text h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.9rem; font-weight: 300; margin-top: .2rem;
+    }
+
+    @media(max-width:600px) {
+      .mexico-strip { grid-template-columns: repeat(2,1fr); height: 200px; }
+      .photo-banner { height: clamp(240px, 55vw, 350px); }
+    }
+
+    /* ─── GIFT TABS ─── */
+    .gift-tabs {
+      display: flex;
+      justify-content: center;
+      gap: .6rem;
+      margin: 0 auto 2.5rem;
+    }
+    .gift-tab-btn {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .72rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      padding: .7rem 2rem;
+      border: 1.5px solid var(--teal);
+      border-radius: 30px;
+      background: transparent;
+      color: var(--teal);
+      cursor: pointer;
+      transition: all .3s ease;
+    }
+    .gift-tab-btn.active {
+      background: var(--teal);
+      color: #fff;
+    }
+    .gift-tab-btn:hover:not(.active) {
+      background: rgba(136,187,218,.08);
+    }
+
+    .gift-tab-content {
+      display: none;
+      animation: tabFadeIn .4s ease;
+    }
+    .gift-tab-content.active {
+      display: block;
+    }
+    @keyframes tabFadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Nossa Casa tab background */
+    .nossa-casa-tab {
+      position: relative;
+    }
+    .nossa-casa-bg {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 2rem;
+      min-height: 180px;
+    }
+    .nossa-casa-bg img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      position: absolute; inset: 0;
+    }
+    .nossa-casa-bg .nc-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,.03), rgba(0,0,0,.45));
+    }
+    .nossa-casa-bg .nc-text {
+      position: relative; z-index: 2;
+      padding: 3rem 2rem;
+      color: #fff;
+      text-align: center;
+    }
+    .nossa-casa-bg .nc-text h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2rem; font-weight: 300;
+    }
+    .nossa-casa-bg .nc-text p {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .75rem; margin-top: .5rem; opacity: .85;
+    }
+
+    /* Lua de Mel tab header */
+    .lua-mel-tab-header {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+    .lua-mel-tab-header .mexico-strip {
+      border-radius: 0;
+      margin: 0;
+      height: 200px;
+    }
+    .lua-mel-tab-header .lm-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,.02), rgba(0,0,0,.50));
+      pointer-events: none;
+    }
+    .lua-mel-tab-header .lm-text {
+      position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
+      padding: 1.8rem 2rem;
+      color: #fff;
+      text-align: center;
+    }
+    .lua-mel-tab-header .lm-text h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2rem; font-weight: 300;
+    }
+    .lua-mel-tab-header .lm-text p {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .75rem; margin-top: .4rem; opacity: .85;
+    }
+
+    @media(max-width:600px) {
+      .gift-tab-btn { padding: .6rem 1.3rem; font-size: .65rem; }
+      .lua-mel-tab-header .mexico-strip { height: 160px; }
+    }
+
+    /* ─── GIFT CARD IMAGES ─── */
+    .gift-card-with-img {
+      display: flex;
+      flex-direction: column;
+    }
+    .gift-img-wrap {
+      width: calc(100% + 3rem);
+      height: 220px;
+      overflow: hidden;
+      border-radius: 6px 6px 0 0;
+      margin: -1.6rem -1.5rem 1.2rem -1.5rem;
+      background: #fff;
+      position: relative;
+    }
+    .gift-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      background: #fff;
+      padding: 12px;
+    }
+    @media(max-width:480px) {
+      .gift-img-wrap { height: 180px; }
+    }
+  
+    /* ══════════════════════════════════════════
+       RESPONSIVE — TELEMÓVEL E COMPUTADOR
+       Breakpoints:
+         768px  → tablet / telemóvel paisagem
+         600px  → telemóvel retrato (já existia)
+         480px  → telemóvel pequeno (já existia)
+         380px  → telemóvel muito pequeno
+    ══════════════════════════════════════════ */
+
+    /* ── Tablet & telemóvel em paisagem ── */
+    @media (max-width: 768px) {
+
+      /* Navegação: encolhe gap e faz wrap se necessário */
+      nav {
+        gap: 1.2rem;
+        padding: .75rem 1.2rem;
+        flex-wrap: wrap;
+      }
+      nav a {
+        font-size: .68rem;
+        letter-spacing: .14em;
+      }
+
+      /* Hero: menos padding vertical */
+      #hero {
+        padding: 5rem 1.5rem 5.5rem;
+      }
+
+      /* Secções: menos padding vertical */
+      .section {
+        padding: 3.5rem 1.5rem;
+      }
+
+      /* Separadores / tabs da lista de presentes */
+      .gift-tabs {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: .4rem;
+      }
+      .gift-tab-btn {
+        padding: .55rem 1.3rem;
+        font-size: .67rem;
+        letter-spacing: .1em;
+      }
+
+      /* Grelha de presentes: 1 coluna em ecrãs estreitos */
+      .gift-category-grid {
+        grid-template-columns: 1fr;
+      }
+
+      /* Banners de foto: altura menor */
+      .photo-banner {
+        height: clamp(180px, 45vw, 320px);
+      }
+
+      /* Grelha de eventos (O Dia / Depois da Festa) */
+      .events-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+    }
+
+    /* ── Telemóvel retrato (pequeno a médio) ── */
+    @media (max-width: 480px) {
+
+      /* Nav ainda mais compacta */
+      nav {
+        gap: .7rem;
+        padding: .65rem 1rem;
+      }
+      nav a {
+        font-size: .62rem;
+        letter-spacing: .1em;
+      }
+
+      /* Hero */
+      #hero {
+        padding: 4.5rem 1.2rem 5rem;
+      }
+
+      /* Secções */
+      .section {
+        padding: 3rem 1.2rem;
+      }
+
+      /* Contagem decrescente */
+      .countdown {
+        gap: .7rem;
+      }
+      .countdown-item span.num {
+        font-size: clamp(1.8rem, 8vw, 2.6rem);
+      }
+
+      /* Títulos de secção */
+      .section-title {
+        font-size: clamp(1.5rem, 6vw, 2rem);
+      }
+
+      /* Gift tabs: ainda mais compactas */
+      .gift-tab-btn {
+        padding: .5rem 1rem;
+        font-size: .62rem;
+      }
+
+      /* Modais: mais espaço nas margens */
+      .modal {
+        padding: 1.5rem 1.2rem;
+        margin: 0 .8rem;
+      }
+      .modal-overlay {
+        padding: 1rem .8rem;
+        align-items: flex-end;
+      }
+
+      /* Botões de contribuição */
+      .gift-contribute-btn {
+        font-size: .62rem;
+        padding: .55rem 1rem;
+      }
+
+      /* Imagem do presente ligeiramente mais alta */
+      .gift-img-wrap { height: 200px; }
+    }
+
+    /* ── Telemóvel muito pequeno (≤ 380px) ── */
+    @media (max-width: 380px) {
+
+      nav {
+        gap: .5rem;
+        padding: .6rem .8rem;
+      }
+      nav a {
+        font-size: .58rem;
+        letter-spacing: .08em;
+      }
+
+      .section {
+        padding: 2.5rem 1rem;
+      }
+
+      .countdown {
+        gap: .5rem;
+      }
+
+      /* 2 colunas na strip de fotos em vez de 3 */
+      .mexico-strip {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+    }
+
+    /* ── Desktop largo (≥ 1200px): melhorar espaçamento ── */
+    @media (min-width: 1200px) {
+
+      .section {
+        padding: 6rem 2rem;
+      }
+
+      /* Grelha de presentes: max 3 colunas */
+      .gift-category-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      }
+
+      .photo-banner {
+        height: clamp(320px, 35vw, 520px);
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero">Início</a>
+  <a href="#odia">O Dia</a>
+  <a href="#rsvp">Presença</a>
+  <a href="#presentes">Lista</a>
+  <a href="#depois">Depois da Festa</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <!-- Optional background photo (set via admin mode) -->
+  <img id="img-hero-bg" src="9Q0A3602.jpg" alt="" style="display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;z-index:0">
+  <div class="photo-slot-admin" id="slot-hero-bg" data-slot="hero-bg" data-label="📷 Arrastar foto · Início (fundo)" style="z-index:1">
+    <div class="slot-label">📷 Arrastar foto · Início</div>
+  </div>
+  <p class="hero-names">Carmo e Zé Luís</p>
+  <div class="hero-divider"></div>
+  <div class="hero-portrait" id="hero-portrait-wrap" onclick="adminPhotoClick('hero-portrait')">
+    <img id="img-hero-portrait" src="" alt="Carmo &amp; Zé Luís" style="display:none">
+    <div class="hero-portrait-edit"><span>📷</span>Alterar foto</div>
+  </div>
+    <p class="hero-date">20 de Junho de 2026</p>
+
+  <div class="countdown" id="countdown">
+    <div class="countdown-item">
+      <span class="num" id="cd-days">90</span>
+      <span class="label">Dias</span>
+    </div>
+    <span class="countdown-sep">·</span>
+    <div class="countdown-item">
+      <span class="num" id="cd-hours">04</span>
+      <span class="label">Horas</span>
+    </div>
+    <span class="countdown-sep">·</span>
+    <div class="countdown-item">
+      <span class="num" id="cd-mins">00</span>
+      <span class="label">Minutos</span>
+    </div>
+    <span class="countdown-sep">·</span>
+    <div class="countdown-item">
+      <span class="num" id="cd-secs">16</span>
+      <span class="label">Segundos</span>
+    </div>
+  </div>
+  <img class="hero-flower" src="imagens/imagem01.png" alt="Hortênsia">
+
+
+</section>
+
+<!-- WELCOME / O DIA -->
+<section id="odia" style="background:var(--cream)">
+  <div class="section fade-in visible" style="max-width:680px;text-align:center">
+    <p class="section-sub" style="font-size:.95rem;letter-spacing:.25em">O Dia</p>
+    <h2 class="section-title">Querida Família e Amigos</h2>
+    <p style="font-size:1.05rem;line-height:1.9;color:var(--text-mid);margin-bottom:1.2rem">
+      Está a chegar o nosso dia!
+    </p>
+    <p style="font-size:.95rem;line-height:1.9;color:var(--text-mid);margin-bottom:1rem">
+      Vamos casar no dia <strong>20 de Junho</strong>, às <strong>16 horas</strong>, na Igreja do Convento de São Francisco, em Alenquer.
+    </p>
+    <p style="font-size:.95rem;line-height:1.9;color:var(--text-mid);margin-bottom:1.8rem">
+      A festa será na <strong>Quinta do Valle do Riacho</strong>.
+    </p>
+    <p style="font-size:.85rem;color:var(--text-mid);letter-spacing:.03em">
+      Pedimos que confirmem a vossa presença em baixo.
+    </p>
+    <div style="margin-top:2rem">
+      <a href="#rsvp" class="btn btn-teal" style="text-decoration:none;font-size:.7rem;letter-spacing:.2em">Confirmar Presença</a>
+    </div>
+  </div>
+</section>
+
+<!-- DETAILS -->
+<section id="detalhes" style="background:var(--warm-white)">
+  <div class="section fade-in visible" style="max-width:900px">
+    <div class="events-grid">
+      <!-- ════ CARD CERIMÓNIA ════
+           Para adicionar a foto da Igreja:
+           Substitui o <div class="event-photo-placeholder">…</div>
+           por: <img src="foto-igreja.jpg" alt="Igreja" style="width:100%;height:100%;object-fit:cover">
+           OU envia o ficheiro JPG ao assistente para o embutir no HTML.
+      -->
+      <div class="event-card">
+        <div class="event-photo" id="photo-igreja">
+          <img src="https://api.oestecim.pt/uploads/1/1/HistoricoProjetos/igrejasfrancisco_02_480x640.jpg" alt="Igreja e Convento de São Francisco" style="width:100%;height:100%;object-fit:cover;object-position:center 60%;display:block" onerror="this.style.display='none';document.getElementById('ph-igreja').style.display='flex'">
+          <div class="event-photo-placeholder" id="ph-igreja" style="display:none">
+            <span>⛪</span>
+            Igreja e Convento de São Francisco
+          </div>
+        </div>
+        <div class="event-card-body">
+          <h3>Igreja e Convento de São Francisco</h3>
+          <p class="event-time">20 Junho 2026 · 16h00</p>
+          <p>R. Comendador Guilherme João<br>Carlos Henriques 6, Alenquer</p>
+          <a href="https://maps.app.goo.gl/u6DZePPkguX4ZFVQ9" target="_blank" rel="noopener">Como chegar →</a>
+        </div>
+      </div>
+      <!-- ════ CARD FESTA ════
+           Para adicionar a foto da Quinta:
+           Substitui o <div class="event-photo-placeholder">…</div>
+           por: <img src="foto-quinta.jpg" alt="Quinta" style="width:100%;height:100%;object-fit:cover">
+           OU envia o ficheiro JPG ao assistente para o embutir no HTML.
+      -->
+      <div class="event-card">
+        <div class="event-photo" id="photo-quinta">
+          <div class="event-photo-slot" id="slot-quinta" data-slot="quinta" onclick="adminPhotoClick('quinta')">
+            <div class="event-photo-placeholder" id="ph-quinta" style="display: none;">
+              <span>🥂</span>
+              Quinta Valle do Riacho
+            </div>
+            <img id="img-quinta" src="imagens/imagem02.jpg" alt="Quinta Valle do Riacho" style="display: block; position: absolute; inset: 0px;">
+            <div class="slot-edit" data-slot="quinta">📷 Alterar foto</div>
+          </div>
+        </div>
+        <div class="event-card-body">
+          <h3>Quinta Valle do Riacho</h3>
+          <p class="event-time">Festa</p>
+          <p>Quinta Valle do Riacho<br>2580-405 Labrugeira</p>
+          <a href="https://maps.google.com/?q=Quinta+Valle+do+Riacho,+2580-405+Labrugeira" target="_blank" rel="noopener">Como chegar →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RSVP -->
+<section id="rsvp">
+  <div class="section fade-in visible">
+    <h2 class="section-title">Confirmar Presença</h2>
+
+
+    <div class="rsvp-form" id="rsvp-form-wrap">
+      <form id="rsvpForm" novalidate="">
+        <div class="form-row two">
+          <div class="form-group">
+            <label for="nome">Nome completo</label>
+            <input type="text" id="nome" placeholder="O teu nome" required="">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="email@exemplo.com" required="">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="presenca">Confirmação</label>
+            <select id="presenca" required="">
+              <option value="">Selecionar…</option>
+              <option value="sim">✓ Sim, estarei lá</option>
+              <option value="nao">✗ Não poderei estar</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="notas">Notas / Restrições alimentares</label>
+            <textarea id="notas" placeholder="Alguma nota, restrição alimentar ou mensagem para os noivos…"></textarea>
+          </div>
+        </div>
+        <div class="form-footer">
+          <button type="submit" class="btn btn-light">Confirmar Presença</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="rsvp-success" id="rsvp-success">
+      <h3>Obrigado!</h3>
+      <p>A tua presença foi registada. Até breve!</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════ LISTA PHOTO BANNER ════ -->
+<section class="photo-banner" id="banner-lista">
+  <div class="photo-banner-bg" style="background: none;">
+    <img id="img-banner-lista" src="imagens/imagem03.jpg" alt="Lista de Presentes" style="display: block;">
+  </div>
+  <div class="photo-banner-overlay"></div>
+  <div class="photo-slot-admin" id="slot-banner-lista" data-slot="banner-lista" data-label="📷 Arrastar foto · Lista">
+    <div class="slot-label">📷 Arrastar foto · Lista</div>
+  </div>
+  <div class="photo-banner-body">
+    <h2 style="font-family:'Montserrat',sans-serif;font-size:clamp(2.2rem,5vw,3.4rem);font-weight:300;color:#fff;text-shadow:0 2px 20px rgba(0,0,0,.3)">Lista de Presentes</h2>
+  </div>
+</section>
+
+<!-- GIFT LIST -->
+<section id="presentes">
+  <div class="section fade-in visible">
+
+    <p class="gift-intro">
+      Para nós, o mais importante é que estejam presentes neste dia!
+    </p>
+    <p class="gift-intro" style="margin-top:-.5rem">
+      Mas claro que, neste novo passo nas nossas vidas, gostávamos muito de guardar o máximo de recordações de todos.
+    </p>
+    <p class="gift-intro" style="margin-top:-.5rem">
+      Se quiserem oferecer um presente, deixamos aqui duas opções. Podem ver os links em baixo e, se escolherem alguma coisa, pedimos só que deixem uma mensagem a dizer com o que vão contribuir, para vos podermos agradecer!
+    </p>
+
+    <!-- Tab navigation -->
+    <div class="gift-tabs">
+      <button class="gift-tab-btn" onclick="switchGiftTab('lua-mel')">Lua de Mel</button>
+      <button class="gift-tab-btn active" onclick="switchGiftTab('nossa-casa')">A Nossa Casa</button>
+    </div>
+
+    <!-- TAB 1: Lua de Mel -->
+    <div class="gift-tab-content" id="tab-lua-mel">
+      <div class="lua-mel-tab-header">
+        <div class="mexico-strip">
+          <img src="https://www.segurilatam.com/wp-content/uploads/sites/5/2025/06/plaza-del-zocalo-y-catedral-metropolitana-cdmx.jpg" alt="Cidade do México" onerror="this.style.opacity='.3'">
+          <img src="https://escapadas.mexicodesconocido.com.mx/wp-content/uploads/2020/10/CAnON-DEL-SUMIDERO-FDJ_ok-scaled-1.jpg" alt="Cañón del Sumidero" onerror="this.style.opacity='.3'">
+          <img src="https://www.barcelo.com/guia-turismo/wp-content/uploads/2021/02/holbox-isla-pasion-888.jpg" alt="Holbox" onerror="this.style.opacity='.3'">
+          <img src="https://www.locogringo.com/sites/default/files/ttd-teaser/shutterstock_548507557.jpg" alt="México" onerror="this.style.opacity='.3'">
+        </div>
+        <div class="lm-overlay"></div>
+        <div class="lm-text">
+          <h3 style="text-transform:uppercase;letter-spacing:.15em">MÉXICO</h3>
+          <a href="#" id="darPresenteBanner" onclick="event.preventDefault();openPublicContribute('lm01')" style="display:inline-block;margin-top:1rem;font-family:'Montserrat',sans-serif;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#fff;border:1.5px solid rgba(255,255,255,.7);border-radius:30px;padding:.6rem 2rem;text-decoration:none;transition:background .2s">Dar presente</a>
+        </div>
+      </div>
+      <div class="gift-grid" id="giftGridLuaMel"><div class="gift-category"><div class="gift-category-grid" style="justify-content: center;"></div></div></div>
+    </div>
+
+    <!-- TAB 2: A Nossa Casa -->
+    <div class="gift-tab-content active" id="tab-nossa-casa">
+      <div class="nossa-casa-bg">
+        <img id="img-nossa-casa" src="imagens/imagem04.jpg" alt="A Nossa Casa" style="display: block;">
+        <div class="nc-overlay"></div>
+        <div class="nc-text">
+          <h3>A Nossa Casa</h3>
+        </div>
+        <div class="photo-slot-admin" id="slot-nossa-casa" data-slot="nossa-casa" data-label="Arrastar foto · A Nossa Casa">
+          <div class="slot-label">Arrastar foto · A Nossa Casa</div>
+        </div>
+      </div>
+      <div class="gift-grid" id="giftGridCasa"><div class="gift-category"><h3>Sala</h3><div class="gift-category-grid"><div class="gift-card gift-card-with-img" id="card-s01"><div class="gift-img-wrap">
+               <img class="gift-product-img" src="imagens/imagem05.jpg" alt="Sofá Magnus">
+             </div>
+          <div class="gift-name" style="margin-bottom:.15rem"><a href="https://areastore.com/collections/sofas/products/89960-magnus-sofa-l224cm" target="_blank" rel="noopener" class="gift-name-link">Sofá Magnus</a></div>
+          <div class="gift-progress-wrap" style="margin-top:.9rem">
+               <div style="display:flex;justify-content:flex-end;margin-bottom:.3rem">
+                 <span style="font-size:.68rem;letter-spacing:.05em;color:var(--text-mid)">0%</span>
+               </div>
+               <div class="progress-bar-bg">
+                 <div class="progress-bar-fill" style="width:0%"></div>
+               </div>
+             </div><button class="gift-contribute-btn" style="margin-top:.8rem;display:block" onclick="openPublicContribute('s01')">Presente →</button><button class="gift-contribute-btn" style="margin-top:.4rem;display:block;opacity:.6" onclick="openContribute('s01')">Actualizar (admin) →</button></div><div class="gift-card gift-card-with-img" id="card-s02"><div class="gift-img-wrap">
+               <img class="gift-product-img" src="imagens/imagem06.jpg" alt="Cadeirão Maple">
+             </div>
+          <div class="gift-name" style="margin-bottom:.15rem"><a href="https://www.mobnor.pt/detalhes_cadeiroes.php?id=CAD06&amp;preco=799" target="_blank" rel="noopener" class="gift-name-link">Cadeirão Maple</a></div>
+          <div class="gift-progress-wrap" style="margin-top:.9rem">
+               <div style="display:flex;justify-content:flex-end;margin-bottom:.3rem">
+                 <span style="font-size:.68rem;letter-spacing:.05em;color:var(--text-mid)">0%</span>
+               </div>
+               <div class="progress-bar-bg">
+                 <div class="progress-bar-fill" style="width:0%"></div>
+               </div>
+             </div><button class="gift-contribute-btn" style="margin-top:.8rem;display:block" onclick="openPublicContribute('s02')">Presente →</button><button class="gift-contribute-btn" style="margin-top:.4rem;display:block;opacity:.6" onclick="openContribute('s02')">Actualizar (admin) →</button></div><div class="gift-card gift-card-with-img" id="card-s03"><div class="gift-img-wrap">
+               <img class="gift-product-img" src="imagens/imagem07.jpg" alt="Candeeiro de Mesa — Lagoon">
+             </div>
+          <div class="gift-name" style="margin-bottom:.15rem"><a href="https://www.elcorteingles.pt/casa-e-decoracao/A36485200-candeeiro-de-mesa-de-vidro-reciclado-lagoon/?parentCategoryId=5007.15884639024&amp;color=Verde" target="_blank" rel="noopener" class="gift-name-link">Candeeiro de Mesa — Lagoon</a></div>
+          <div class="gift-progress-wrap" style="margin-top:.9rem">
+               <div style="display:flex;justify-content:flex-end;margin-bottom:.3rem">
+                 <span style="font-size:.68rem;letter-spacing:.05em;color:var(--text-mid)">0%</span>
+               </div>
+               <div class="progress-bar-bg">
+                 <div class="progress-bar-fill" style="width:0%"></div>
+               </div>
+             </div><button class="gift-contribute-btn" style="margin-top:.8rem;display:block" onclick="openPublicContribute('s03')">Presente →</button><button class="gift-contribute-btn" style="margin-top:.4rem;display:block;opacity:.6" onclick="openContribute('s03')">Actualizar (admin) →</button></div><div class="gift-card gift-card-with-img" id="card-s04"><div class="gift-img-wrap">
+               <img class="gift-product-img" src="imagens/imagem08.jpg" alt="Candeeiro de Mesa — Kiel">
+             </div>
+          <div class="gift-name" style="margin-bottom:.15rem"><a href="https://www.elcorteingles.pt/casa-e-decoracao/A54576592-candeeiro-de-mesa-de-cristal-kiel/?parentCategoryId=5007.15884639024&amp;color=Âmbar" target="_blank" rel="noopener" class="gift-name-link">Candeeiro de Mesa — Kiel</a></div>
+          <div class="gift-progress-wrap" style="margin-top:.9rem">
+               <div style="display:flex;justify-content:flex-end;margin-bottom:.3rem">
+                 <span style="font-size:.68rem;letter-spacing:.05em;color:var(--text-mid)">0%</span>
+               </div>
+               <div class="progress-bar-bg">
+                 <div class="progress-bar-fill" style="width:0%"></div>
+               </div>
+             </div><button class="gift-contribute-btn" style="margin-top:.8rem;display:block" onclick="openPublicContribute('s04')">Presente →</button><button class="gift-contribute-btn" style="margin-top:.4rem;display:block;opacity:.6" onclick="openContribute('s04')">Actualizar (admin) →</button></div><div class="gift-card   gift-card-with-img" id="card-s05"><div class="gift-img-wrap"><img class="gift-product-img" src="imagens/imagem09.jpg" alt="Molduras"></div><div class="gift-name" style="margin-bottom:.15rem"><a href="https://areastore.com/collections/molduras?page=3" target="_blank" rel="noopener" class="gift-name-link">Molduras</a></div><div class="gift-progress-wrap" style="margin-top:.9rem"><div style="display:flex;justify-content:flex-end;margin-bottom:.3rem"><span style="font-size:.68rem;letter-spacing:.05em;color:var(--text-mid)">0%</span></div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:0%"></div></div></div><button class="gift-contribute-btn" style="margin-top:.8rem;display:block" onclick="openPublicContribute('s05')">Quero contribuir →</button><button class="gift-contribute-btn" style="margin-top:.4rem;display:block;opacity:.6" onclick="openContribute('s05')">Actualizar (admin) →</button></div></div></div><div class="gift-category"><h3>Sala de Jantar</h3><div class="gift-category-grid"><div class="gift-card gift-card-with-img" id="card-j01"><div class="gift-img-wrap">
+               <img class="gift-product-img" src="imagens/imagem10.jpg" alt="Mesa de Jantar Extensível Gala">
+             </div>
+          <div class="gift-name" style="margin-bottom:.15rem"><a href="https://www.sklum.com/pt/comprar-mesas-de-jantar/175942-mesa-de-jantar-oval-extensivel-160-200x100-cm-em-mdf-e-folha-de-nogueira-gala.html" target="_blank" rel="noopener" class="gift-name-link">Mesa de Jantar Extensível Gala</a></div>
+          <div class="gift-progress-wrap" style="margin-top:.9rem">
+               <div style="display:flex;justify-content:flex-end;margin-bottom:.3rem">
+                 <span style="font-size:.68rem;letter-spacing:.05em;color:var(--text-mid)">0%</span>
+               </div>
+               <div class="progress-bar-bg">
+                 <div class="progress-bar-fill" style="width:0%"></div>
+               </div>
+             </div><button class="gift-contribute-btn" style="margin-top:.8rem;display:block" onclick="openPublicContribute('j01')">Presente →</button><button class="gift-contribute-btn" style="margin-top:.4rem;display:block;opacity:.6" onclick="openContribute('j01')">Actualizar (admin) →</button></div><div class="gift-card gift-card-with-img" id="card-j02"><div class="gift-img-wrap">
+               <img class="gift-product-img" src="imagens/imagem11.jpg" alt="8 Cadeiras Carrie">
+             </div>
+          <div class="gift-name" style="margin-bottom:.15rem"><a href="https://areastore.com/collections/cadeiras-e-bancos/products/73774-carrie-cadeira" target="_blank" rel="noopener" class="gift-name-link">8 Cadeiras Carrie</a></div>
+          <div class="gift-progress-wrap" style="margin-top:.9rem">
+               <div style="display:flex;justify-content:flex-end;margin-bottom:.3rem">
+                 <span style="font-size:.68rem;letter-spacing:.05em;color:var(--text-mid)">0%</span>
+               </div>
+               <div class="progress-bar-bg">
+                 <div class="progress-bar-fill" style="width:0%"></div>
+               </div>
+             </div><button class="gift-contribute-btn" style="margin-top:.8rem;display:block" onclick="openPublicContribute('j02')">Presente →</button><button class="gift-contribute-btn" style="margin-top:.4rem;display:block;opacity:.6" onclick="openContribute('j02')">Actualizar (admin) →</button></div><div class="gift-card gift-card-with-img" id="card-j04"><div class="gift-img-wrap">
+               <img class="gift-product-img" src="imagens/imagem12.jpg" alt="Candeeiro de Teto Takai">
+             </div>
+          <div class="gift-name" style="margin-bottom:.15rem"><a href="https://www.normo.pt/collections/iluminacao-suspensa/products/takai-30-pendant-lamp-beige-linen?variant=54215703527747" target="_blank" rel="noopener" class="gift-name-link">Candeeiro de Teto Takai</a></div>
+          <button class="gift-contribute-btn" style="margin-top:.8rem;display:block" onclick="openPublicContribute('j04')">Presente →</button><button class="gift-contribute-btn" style="margin-top:.4rem;display:block;opacity:.6" onclick="openContribute('j04')">Actualizar (admin) →</button></div><div class="gift-card gift-card-with-img" id="card-j06"><div class="gift-img-wrap">
+               <img class="gift-product-img" src="imagens/imagem13.jpg" alt="Faqueiro Cutipol Athena (130 peças)">
+             </div>
+          <div class="gift-name" style="margin-bottom:.15rem"><a href="https://www.cutipol.pt/pt/shop/faqueiro-130-pcs-athena.html" target="_blank" rel="noopener" class="gift-name-link">Faqueiro Cutipol Athena (130 peças)</a></div>
+          <div class="gift-progress-wrap" style="margin-top:.9rem">
+               <div style="display:flex;justify-content:flex-end;margin-bottom:.3rem">
+                 <span style="font-size:.68rem;letter-spacing:.05em;color:var(--text-mid)">0%</span>
+               </div>
+               <div class="progress-bar-bg">
+                 <div class="progress-bar-fill" style="width:0%"></div>
+               </div>
+             </div><button class="gift-contribute-btn" style="margin-top:.8rem;display:block" onclick="openPublicContribute('j06')">Presente →</button><button class="gift-contribute-btn" style="margin-top:.4rem;display:block;opacity:.6" onclick="openContribute('j06')">Actualizar (admin) →</button></div></div></div><div class="gift-category"><h3>Quarto</h3><div class="gift-category-grid"><div class="gift-card gift-card-with-img" id="card-q01"><div class="gift-img-wrap">
+               <img class="gift-product-img" src="imagens/imagem14.jpg" alt="Cama com Estrado Elevatório">
+             </div>
+          <div class="gift-name" style="margin-bottom:.15rem"><a href="https://www.laredoute.pt/ppdp/prod-350349653.aspx" target="_blank" rel="noopener" class="gift-name-link">Cama com Estrado Elevatório</a></div>
+          <div class="gift-progress-wrap" style="margin-top:.9rem">
+               <div style="display:flex;justify-content:flex-end;margin-bottom:.3rem">
+                 <span style="font-size:.68rem;letter-spacing:.05em;color:var(--text-mid)">0%</span>
+               </div>
+               <div class="progress-bar-bg">
+                 <div class="progress-bar-fill" style="width:0%"></div>
+               </div>
+             </div><button class="gift-contribute-btn" style="margin-top:.8rem;display:block" onclick="openPublicContribute('q01')">Presente →</button><button class="gift-contribute-btn" style="margin-top:.4rem;display:block;opacity:.6" onclick="openContribute('q01')">Actualizar (admin) →</button></div><div class="gift-card gift-card-with-img" id="card-q01h"><div class="gift-img-wrap">
+               <img class="gift-product-img" src="imagens/imagem15.jpg" alt="Cabeceira Estofada Plains">
+             </div>
+          <div class="gift-name" style="margin-bottom:.15rem"><a href="https://kenayhome.com/pt/20161-plains-cabeceira-estofada-removivel-150-160-verde-claro.html" target="_blank" rel="noopener" class="gift-name-link">Cabeceira Estofada Plains</a></div>
+          <button class="gift-contribute-btn" style="margin-top:.8rem;display:block" onclick="openPublicContribute('q01h')">Presente →</button><button class="gift-contribute-btn" style="margin-top:.4rem;display:block;opacity:.6" onclick="openContribute('q01h')">Actualizar (admin) →</button></div><div class="gift-card gift-card-with-img" id="card-q03"><div class="gift-img-wrap">
+               <img class="gift-product-img" src="imagens/imagem16.jpg" alt="Mesas de Cabeceira Yulara (pack de 2)">
+             </div>
+          <div class="gift-name" style="margin-bottom:.15rem"><a href="https://www.sklum.com/pt/comprar-packs-de-mesas-de-cabeceira/205778-pacote-de-2-mesas-de-cabeceira-de-madeira-de-manga-yulara.html" target="_blank" rel="noopener" class="gift-name-link">Mesas de Cabeceira Yulara (pack de 2)</a></div>
+          <div class="gift-progress-wrap" style="margin-top:.9rem">
+               <div style="display:flex;justify-content:flex-end;margin-bottom:.3rem">
+                 <span style="font-size:.68rem;letter-spacing:.05em;color:var(--text-mid)">0%</span>
+               </div>
+               <div class="progress-bar-bg">
+                 <div class="progress-bar-fill" style="width:0%"></div>
+               </div>
+             </div><button class="gift-contribute-btn" style="margin-top:.8rem;display:block" onclick="openPublicContribute('q03')">Presente →</button><button class="gift-contribute-btn" style="margin-top:.4rem;display:block;opacity:.6" onclick="openContribute('q03')">Actualizar (admin) →</button></div><div class="gift-card   gift-card-with-img" id="card-q04"><div class="gift-img-wrap"><img class="gift-product-img" src="imagens/imagem17.jpg" alt="Roupeiro Branco"></div><div class="gift-name" style="margin-bottom:.15rem">Roupeiro Branco</div><div class="gift-progress-wrap" style="margin-top:.9rem"><div style="display:flex;justify-content:flex-end;margin-bottom:.3rem"><span style="font-size:.68rem;letter-spacing:.05em;color:var(--text-mid)">0%</span></div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:0%"></div></div></div><button class="gift-contribute-btn" style="margin-top:.8rem;display:block" onclick="openPublicContribute('q04')">Quero contribuir →</button><button class="gift-contribute-btn" style="margin-top:.4rem;display:block;opacity:.6" onclick="openContribute('q04')">Actualizar (admin) →</button></div></div></div><div class="gift-category"><h3>Cozinha</h3><div class="gift-category-grid"><div class="gift-card gift-card-with-img" id="card-k01"><div class="gift-img-wrap">
+               <img class="gift-product-img" src="imagens/imagem18.jpg" alt="Frigorífico Samsung">
+             </div>
+          <div class="gift-name" style="margin-bottom:.15rem"><a href="https://www.worten.pt/produtos/frigorifico-combinado-samsung-rb38t607bs9-ef-no-frost-203-cm-387-l-inox-7800798" target="_blank" rel="noopener" class="gift-name-link">Frigorífico Samsung</a></div>
+          <div class="gift-progress-wrap" style="margin-top:.9rem">
+               <div style="display:flex;justify-content:flex-end;margin-bottom:.3rem">
+                 <span style="font-size:.68rem;letter-spacing:.05em;color:var(--text-mid)">0%</span>
+               </div>
+               <div class="progress-bar-bg">
+                 <div class="progress-bar-fill" style="width:0%"></div>
+               </div>
+             </div><button class="gift-contribute-btn" style="margin-top:.8rem;display:block" onclick="openPublicContribute('k01')">Presente →</button><button class="gift-contribute-btn" style="margin-top:.4rem;display:block;opacity:.6" onclick="openContribute('k01')">Actualizar (admin) →</button></div><div class="gift-card gift-card-with-img" id="card-k02"><div class="gift-img-wrap">
+               <img class="gift-product-img" src="imagens/imagem19.jpg" alt="Trem de Cozinha Tefal Ingenio (13 peças)">
+             </div>
+          <div class="gift-name" style="margin-bottom:.15rem"><a href="https://www.worten.pt/produtos/set-13-pecas-trem-de-cozinha-tefal-ingenio-unlimited-l7639543-16-20-24-28-cm-7655580" target="_blank" rel="noopener" class="gift-name-link">Trem de Cozinha Tefal Ingenio (13 peças)</a></div>
+          <button class="gift-contribute-btn" style="margin-top:.8rem;display:block" onclick="openPublicContribute('k02')">Presente →</button><button class="gift-contribute-btn" style="margin-top:.4rem;display:block;opacity:.6" onclick="openContribute('k02')">Actualizar (admin) →</button></div><div class="gift-card gift-card-with-img" id="card-k03"><div class="gift-img-wrap">
+               <img class="gift-product-img" src="imagens/imagem20.jpg" alt="Air Fryer Becken">
+             </div>
+          <div class="gift-name" style="margin-bottom:.15rem"><a href="https://www.worten.pt/produtos/fritadeira-sem-oleo-becken-baf9306-7-l-preto-8118216" target="_blank" rel="noopener" class="gift-name-link">Air Fryer Becken</a></div>
+          <div class="gift-progress-wrap" style="margin-top:.9rem">
+               <div style="display:flex;justify-content:flex-end;margin-bottom:.3rem">
+                 <span style="font-size:.68rem;letter-spacing:.05em;color:var(--text-mid)">0%</span>
+               </div>
+               <div class="progress-bar-bg">
+                 <div class="progress-bar-fill" style="width:0%"></div>
+               </div>
+             </div><button class="gift-contribute-btn" style="margin-top:.8rem;display:block" onclick="openPublicContribute('k03')">Presente →</button><button class="gift-contribute-btn" style="margin-top:.4rem;display:block;opacity:.6" onclick="openContribute('k03')">Actualizar (admin) →</button></div><div class="gift-card pending-item gift-card-with-img" id="card-k05"><div class="gift-img-wrap">
+               <img class="gift-product-img" src="imagens/imagem21.jpg" alt="Mesa de Cozinha Resarö">
+             </div>
+          <div class="gift-name" style="margin-bottom:.15rem"><a href="https://www.ikea.com/pt/pt/p/resaroe-mesa-abas-rebativeis-c-arrum-port-pinho-20533337/" target="_blank" rel="noopener" class="gift-name-link">Mesa de Cozinha Resarö</a></div>
+          <div class="gift-progress-wrap" style="margin-top:.9rem">
+               <div style="display:flex;justify-content:flex-end;margin-bottom:.3rem">
+                 <span style="font-size:.68rem;letter-spacing:.05em;color:var(--text-mid)">0%</span>
+               </div>
+               <div class="progress-bar-bg">
+                 <div class="progress-bar-fill" style="width:0%"></div>
+               </div>
+             </div><span style="font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-mid);opacity:.55;display:block;margin-top:.6rem">Presente</span><button class="gift-contribute-btn" style="margin-top:.8rem;display:block" onclick="openPublicContribute('k05')">Presente →</button><button class="gift-contribute-btn" style="margin-top:.4rem;display:block;opacity:.6" onclick="openContribute('k05')">Actualizar (admin) →</button></div><div class="gift-card   gift-card-with-img" id="card-k06"><div class="gift-img-wrap"><img class="gift-product-img" src="imagens/imagem22.jpg" alt="Desumidificador KUBO KBDH4759"></div><div class="gift-name" style="margin-bottom:.15rem"><a href="https://www.worten.pt/produtos/desumidificador-kubo-kbdh4759-capacidade-de-extracao-20-l-dia-7200394" target="_blank" rel="noopener" class="gift-name-link">Desumidificador KUBO KBDH4759</a></div><div class="gift-progress-wrap" style="margin-top:.9rem"><div style="display:flex;justify-content:flex-end;margin-bottom:.3rem"><span style="font-size:.68rem;letter-spacing:.05em;color:var(--text-mid)">0%</span></div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:0%"></div></div></div><button class="gift-contribute-btn" style="margin-top:.8rem;display:block" onclick="openPublicContribute('k06')">Quero contribuir →</button><button class="gift-contribute-btn" style="margin-top:.4rem;display:block;opacity:.6" onclick="openContribute('k06')">Actualizar (admin) →</button></div><div class="gift-card   gift-card-with-img" id="card-s06"><div class="gift-img-wrap"><img class="gift-product-img" src="imagens/imagem23.jpg" alt="Aspirador Rowenta X-Force Flex 15.60"></div><div class="gift-name" style="margin-bottom:.15rem"><a href="https://www.worten.pt/produtos/aspirador-vertical-rowenta-x-force-flex-15-60-animal-care-rh99f1wo-32-4-v-autonomia-80-min-900-ml-7583893" target="_blank" rel="noopener" class="gift-name-link">Aspirador Rowenta X-Force Flex 15.60</a></div><div class="gift-progress-wrap" style="margin-top:.9rem"><div style="display:flex;justify-content:flex-end;margin-bottom:.3rem"><span style="font-size:.68rem;letter-spacing:.05em;color:var(--text-mid)">0%</span></div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:0%"></div></div></div><button class="gift-contribute-btn" style="margin-top:.8rem;display:block" onclick="openPublicContribute('s06')">Quero contribuir →</button><button class="gift-contribute-btn" style="margin-top:.4rem;display:block;opacity:.6" onclick="openContribute('s06')">Actualizar (admin) →</button></div></div></div><div class="gift-category"><h3>Escritório</h3><div class="gift-category-grid"><div class="gift-card   gift-card-with-img" id="card-e01"><div class="gift-img-wrap"><img class="gift-product-img" src="imagens/imagem24.jpg" alt="Cadeira de Escritório Teacher"></div><div class="gift-name" style="margin-bottom:.15rem"><a href="https://www.maisonsdumonde.com/PT/pt/p/cadeira-de-escritorio-com-rodas-de-couro-castanho-e-aco-teacher-249950.htm" target="_blank" rel="noopener" class="gift-name-link">Cadeira Teacher — Couro Castanho</a></div><div class="gift-progress-wrap" style="margin-top:.9rem"><div style="display:flex;justify-content:flex-end;margin-bottom:.3rem"><span style="font-size:.68rem;letter-spacing:.05em;color:var(--text-mid)">0%</span></div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:0%"></div></div></div><button class="gift-contribute-btn" style="margin-top:.8rem;display:block" onclick="openPublicContribute('e01')">Quero contribuir →</button><button class="gift-contribute-btn" style="margin-top:.4rem;display:block;opacity:.6" onclick="openContribute('e01')">Actualizar (admin) →</button></div></div></div><div class="gift-category"><h3>Casa de Banho</h3><div class="gift-category-grid"><div class="gift-card gift-card-with-img" id="card-b01"><div class="gift-img-wrap">
+               <img class="gift-product-img" src="imagens/imagem25.jpg" alt="Toalhas — Natural Almonda">
+             </div>
+          <div class="gift-name" style="margin-bottom:.15rem"><a href="https://www.torresnovas.com/products/natural-almonda?variant=39702710386770" target="_blank" rel="noopener" class="gift-name-link">2 conjuntos de toalhas — Natural Almonda</a></div>
+          <div class="gift-progress-wrap" style="margin-top:.9rem">
+               <div style="display:flex;justify-content:flex-end;margin-bottom:.3rem">
+                 <span style="font-size:.68rem;letter-spacing:.05em;color:var(--text-mid)">0%</span>
+               </div>
+               <div class="progress-bar-bg">
+                 <div class="progress-bar-fill" style="width:0%"></div>
+               </div>
+             </div><button class="gift-contribute-btn" style="margin-top:.8rem;display:block" onclick="openPublicContribute('b01')">Presente →</button><button class="gift-contribute-btn" style="margin-top:.4rem;display:block;opacity:.6" onclick="openContribute('b01')">Actualizar (admin) →</button></div><div class="gift-card gift-card-with-img" id="card-b02"><div class="gift-img-wrap">
+               <img class="gift-product-img" src="imagens/imagem26.jpg" alt="Toalhas — Almonda Azul Claro">
+             </div>
+          <div class="gift-name" style="margin-bottom:.15rem"><a href="https://www.torresnovas.com/products/high-quality-almonda-bath-towels-light-blue?variant=33241176244306" target="_blank" rel="noopener" class="gift-name-link">2 conjuntos de toalhas — Almonda Azul Claro</a></div>
+          <div class="gift-progress-wrap" style="margin-top:.9rem">
+               <div style="display:flex;justify-content:flex-end;margin-bottom:.3rem">
+                 <span style="font-size:.68rem;letter-spacing:.05em;color:var(--text-mid)">0%</span>
+               </div>
+               <div class="progress-bar-bg">
+                 <div class="progress-bar-fill" style="width:0%"></div>
+               </div>
+             </div><button class="gift-contribute-btn" style="margin-top:.8rem;display:block" onclick="openPublicContribute('b02')">Presente →</button><button class="gift-contribute-btn" style="margin-top:.4rem;display:block;opacity:.6" onclick="openContribute('b02')">Actualizar (admin) →</button></div></div></div></div>
+    </div>
+
+
+  </div>
+</section>
+
+<!-- ════ DEPOIS PHOTO BANNER ════ -->
+<section class="photo-banner" id="banner-depois">
+  <div class="photo-banner-bg" style="background: none;">
+    <img id="img-banner-depois" src="imagens/imagem27.jpg" alt="Depois da Festa" style="display: block;">
+  </div>
+  <div class="photo-banner-overlay"></div>
+  <div class="photo-slot-admin" id="slot-banner-depois" data-slot="banner-depois" data-label="📷 Arrastar foto · Depois da Festa">
+    <div class="slot-label">📷 Arrastar foto · Depois da Festa</div>
+  </div>
+  <div class="photo-banner-body">
+    <h2>Depois da Festa</h2>
+  </div>
+</section>
+
+<!-- DEPOIS DA FESTA -->
+<section id="depois" style="background:var(--warm-white)">
+  <div class="section fade-in visible">
+
+    <p style="font-family:'Montserrat',sans-serif;font-size:.92rem;line-height:1.85;color:var(--text-mid);text-align:center;max-width:680px;margin:0 auto 2.5rem">
+      O caminho de regresso pode ser perigoso e queremos que cheguem bem a casa. Deixamos aqui duas opções.
+    </p>
+    <p style="font-family:'Montserrat',sans-serif;font-size:.92rem;line-height:1.85;color:var(--text-mid);text-align:center;max-width:680px;margin:0 auto 2.5rem">
+      Arranjámos um sistema de drivers para que vos possam levar a casa às horas que quiserem. Podem levar-vos no vosso carro ou, se não o quiserem levar, num carro da própria empresa. Para saberem mais, basta entrarem em contacto diretamente com o José de Abreu Castelo Branco.
+    </p>
+    <p style="font-family:'Montserrat',sans-serif;font-size:.92rem;line-height:1.85;color:var(--text-mid);text-align:center;max-width:680px;margin:0 auto 2.5rem">
+      Em alternativa, podem marcar alojamento perto da quinta, se preferirem adiar o regresso para o dia seguinte.
+    </p>
+
+    <div class="events-grid">
+      <div class="event-card">
+        <div class="event-photo">
+          <div class="event-photo-slot" id="slot-driver" data-slot="driver" onclick="adminPhotoClick('driver')">
+            <div class="event-photo-placeholder" id="ph-driver">
+              <span>🚗</span>
+              Driver
+            </div>
+            <img id="img-driver" src="" alt="Driver" style="display:none;position:absolute;inset:0">
+            <div class="slot-edit" data-slot="driver">📷 Alterar foto</div>
+          </div>
+        </div>
+        <div class="event-card-body">
+          <h3>Driver</h3>
+          <p class="event-time">Transporte após a festa</p>
+          <p>Para regressar em segurança, contactar:</p>
+          <p style="margin-top:.9rem;font-weight:500;color:var(--text-dark);font-size:.95rem">José CB</p>
+          <a href="tel:+351935357137" style="display:inline-block;margin-top:.3rem;font-size:.9rem;color:var(--teal);text-decoration:none;border-bottom:1px solid rgba(136,187,218,.4);padding-bottom:2px">351 935 357 137</a>
+        </div>
+      </div>
+      <div class="event-card">
+        <div class="event-photo">
+          <div class="event-photo-slot" id="slot-alojamento" data-slot="alojamento" onclick="adminPhotoClick('alojamento')">
+            <div class="event-photo-placeholder" id="ph-alojamento">
+              <span>🏨</span>
+              Onde Ficar
+            </div>
+            <img id="img-alojamento" src="" alt="Alojamento" style="display:none;position:absolute;inset:0">
+            <div class="slot-edit" data-slot="alojamento">📷 Alterar foto</div>
+          </div>
+        </div>
+        <div class="event-card-body">
+          <h3>Onde Ficar</h3>
+          <p class="event-time">Sugestões de alojamento</p>
+          <p>Deixamos algumas sugestões de alojamento perto da quinta para quem precisar de ficar na zona.</p>
+          <!-- Substitui o href="#" pelo link da lista de alojamentos -->
+          <a href="alojamento.html" target="_blank" rel="noopener" id="alojamentosLink">Ver sugestões →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Hidden file input for photo uploads (admin mode) -->
+<input type="file" id="photoFileInput" accept="image/*" style="display:none" onchange="handleFileInputChange(event)">
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-names">Carmo &amp; Zé Luís</p>
+  <p>20 de Junho de 2026 · Alenquer</p>
+  <p style="margin-top:1.2rem">
+    <a href="#" onclick="event.preventDefault();openAdminModal()" style="display:inline-block;opacity:.6;transition:opacity .2s" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.6">
+      <img src="imagens/imagem01.png" alt="" style="width:2rem;height:2rem;object-fit:cover;border-radius:50%">
+    </a>
+  </p>
+  <button id="exportHtmlBtn" style="display:none;margin-top:.5rem;background:var(--teal);color:#fff;border:none;border-radius:3px;padding:.5rem 1.2rem;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;font-family:Montserrat,sans-serif">⬇ Guardar HTML com fotos</button>
+</footer>
+
+<!-- ADMIN LOGIN MODAL -->
+<div class="modal-overlay" id="adminModal">
+  <div class="modal">
+    <h3>Área Reservada</h3>
+    <p class="modal-sub">Introduz a palavra-passe para gerir a lista de presentes.</p>
+    <label for="adminPass">Palavra-passe</label>
+    <input type="password" id="adminPass" placeholder="••••••" onkeydown="if(event.key==='Enter')checkAdminPass()">
+    <p class="error-msg" id="passError" style="display: none;">Palavra-passe incorreta.</p>
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeAdminModal()">Cancelar</button>
+      <button class="btn-save" onclick="checkAdminPass()">Entrar</button>
+    </div>
+  </div>
+</div>
+
+<!-- PUBLIC CONTRIBUTE FORM MODAL -->
+<div class="modal-overlay" id="publicContributeModal">
+  <div class="modal" style="max-width:440px">
+    <h3 id="pubGiftName" style="margin-bottom:.2rem">—</h3>
+    <p class="modal-sub" id="pubGiftBrand" style="margin-bottom:1.4rem"></p>
+
+    <div id="pubFormWrap">
+      <div style="background:rgba(136,187,218,.08);border-radius:6px;padding:1rem 1.2rem;margin-bottom:1.2rem;text-align:center">
+        <p style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-dark);font-weight:500;margin-bottom:.5rem">Dados para transferência</p>
+        <p style="font-size:.85rem;color:var(--text-dark);line-height:1.7;margin:0">
+          <strong>IBAN:</strong> PT50 0023 0000 4551 4358 4319 4<br>
+          <strong>MBWay:</strong> 91 605 87 02
+        </p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:1rem">
+        <div class="form-group" style="display:flex;flex-direction:column;gap:.4rem">
+          <label style="font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text-mid)">O teu nome *</label>
+          <input type="text" id="pubName" placeholder="Nome completo" style="border:1px solid rgba(0,0,0,.15);border-radius:3px;padding:.7rem .9rem;font-family:'Montserrat',sans-serif;font-size:.9rem;color:var(--text-dark);outline:none;transition:border-color .2s" onfocus="this.style.borderColor='var(--teal)'" onblur="this.style.borderColor='rgba(0,0,0,.15)'">
+        </div>
+        <div class="form-group" style="display:flex;flex-direction:column;gap:.4rem">
+          <label style="font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text-mid)">Email (opcional)</label>
+          <input type="email" id="pubEmail" placeholder="para receberes confirmação" style="border:1px solid rgba(0,0,0,.15);border-radius:3px;padding:.7rem .9rem;font-family:'Montserrat',sans-serif;font-size:.9rem;color:var(--text-dark);outline:none;transition:border-color .2s" onfocus="this.style.borderColor='var(--teal)'" onblur="this.style.borderColor='rgba(0,0,0,.15)'">
+        </div>
+        <div class="form-group" style="display:flex;flex-direction:column;gap:.4rem">
+          <label style="font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text-mid)">Telemóvel (opcional)</label>
+          <input type="tel" id="pubPhone" placeholder="ex: 912 345 678" style="border:1px solid rgba(0,0,0,.15);border-radius:3px;padding:.7rem .9rem;font-family:'Montserrat',sans-serif;font-size:.9rem;color:var(--text-dark);outline:none;transition:border-color .2s" onfocus="this.style.borderColor='var(--teal)'" onblur="this.style.borderColor='rgba(0,0,0,.15)'">
+        </div>
+        <div class="form-group" style="display:flex;flex-direction:column;gap:.4rem">
+          <label style="font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text-mid)">Valor que vou contribuir (€)</label>
+          <input type="number" id="pubAmount" min="1" step="1" placeholder="ex: 50" style="border:1px solid rgba(0,0,0,.15);border-radius:3px;padding:.7rem .9rem;font-family:'Montserrat',sans-serif;font-size:.9rem;color:var(--text-dark);outline:none;transition:border-color .2s" onfocus="this.style.borderColor='var(--teal)'" onblur="this.style.borderColor='rgba(0,0,0,.15)'">
+        </div>
+        <div class="form-group" style="display:flex;flex-direction:column;gap:.4rem">
+          <label style="font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text-mid)">Mensagem (opcional)</label>
+          <textarea id="pubMessage" placeholder="Uma mensagem para os noivos…" rows="3" style="border:1px solid rgba(0,0,0,.15);border-radius:3px;padding:.7rem .9rem;font-family:'Montserrat',sans-serif;font-size:.9rem;color:var(--text-dark);outline:none;transition:border-color .2s;resize:vertical" onfocus="this.style.borderColor='var(--teal)'" onblur="this.style.borderColor='rgba(0,0,0,.15)'"></textarea>
+        </div>
+        <p id="pubError" style="color:#c0392b;font-size:.78rem;display:none">Por favor preenche o teu nome.</p>
+      </div>
+      <div class="modal-actions" style="margin-top:1.4rem">
+        <button class="btn-cancel" onclick="closePublicContribute()">Cancelar</button>
+        <button class="btn-save" onclick="submitPublicContribute()">Enviar</button>
+      </div>
+    </div>
+
+    <div id="pubSuccessWrap" style="display:none;text-align:center;padding:1rem 0">
+      <h3 style="font-family:'Montserrat',sans-serif;font-size:1.5rem;font-weight:300;color:var(--teal-dark);margin-bottom:.5rem">Obrigado!</h3>
+      <p style="font-size:.88rem;color:var(--text-mid);line-height:1.7">A tua mensagem foi enviada aos noivos.<br>Eles entrarão em contacto contigo em breve.</p>
+      <button class="btn-save" style="margin-top:1.4rem" onclick="closePublicContribute()">Fechar</button>
+    </div>
+  </div>
+</div>
+
+<!-- CONTRIBUTE MODAL -->
+<div class="modal-overlay" id="contributeModal">
+  <div class="modal">
+    <h3 id="contributeGiftName">Toalhas — Almonda Azul Claro</h3>
+    <p class="modal-sub" id="contributeGiftDesc">Torres Novas · Alternativa às Natural Almonda</p>
+    <div id="totalFieldWrap" style="margin-bottom:1rem;display:none">
+      <label for="contributeTotal" style="display:block;margin-bottom:.4rem">Valor total do presente (€)</label>
+      <input type="number" id="contributeTotal" min="0" step="0.01" placeholder="ex: 500">
+    </div>
+    <label id="contributeLabel">Valor já contribuído (€) — actualmente 0&nbsp;€</label>
+    <input type="number" id="contributeAmount" min="0" step="0.01" placeholder="ex: 150">
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeContributeModal()">Cancelar</button>
+      <button class="btn-save" onclick="saveContribution()">Guardar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  /* ═══════════════════════════════════════════════════════════
+     LISTA DE PRESENTES
+     ─────────────────────────────────────────────────────────
+     Campos:
+       id      → identificador único (não alterar após publicar)
+       cat     → categoria (agrupa os presentes no site)
+       name    → nome do presente
+       brand   → loja / marca
+       desc    → descrição curta (opcional)
+       total   → valor em € (0 = valor ainda a definir)
+       url     → link directo ao produto (opcional)
+       pending → true = item "a confirmar" (aparece mais discreto)
+  ═══════════════════════════════════════════════════════════ */
+  const GIFTS = [
+
+    /* ── SALA ── */
+    { id:"s01", cat:"Sala",
+      name:"Sofá Magnus", brand:"Área",
+      desc:"224 cm",
+      total:1590,
+      url:"https://areastore.com/collections/sofas/products/89960-magnus-sofa-l224cm" ,
+      img:"imagens/imagem05.jpg"},
+
+    { id:"s02", cat:"Sala",
+      name:"Cadeirão Maple", brand:"Mobnor",
+      desc:"",
+      total:799,
+      url:"https://www.mobnor.pt/detalhes_cadeiroes.php?id=CAD06&preco=799" ,
+      img:"imagens/imagem06.jpg"},
+
+    { id:"s03", cat:"Sala",
+      name:"Candeeiro de Mesa — Lagoon", brand:"El Corte Inglês",
+      desc:"Vidro reciclado",
+      total:130,
+      url:"https://www.elcorteingles.pt/casa-e-decoracao/A36485200-candeeiro-de-mesa-de-vidro-reciclado-lagoon/?parentCategoryId=5007.15884639024&color=Verde" ,
+      img:"imagens/imagem07.jpg"},
+
+    { id:"s04", cat:"Sala",
+      name:"Candeeiro de Mesa — Kiel", brand:"El Corte Inglês",
+      desc:"Cristal",
+      total:150,
+      url:"https://www.elcorteingles.pt/casa-e-decoracao/A54576592-candeeiro-de-mesa-de-cristal-kiel/?parentCategoryId=5007.15884639024&color=Âmbar" ,
+      img:"imagens/imagem08.jpg"},
+
+    
+
+    
+
+    
+
+    /* ── SALA DE JANTAR ── */
+    { id:"s05", cat:"Sala",
+      name:"Molduras", brand:"Área",
+      desc:"10 × 15 cm — rattan natural",
+      total:60,
+      url:"https://areastore.com/collections/molduras?page=3" ,
+      img:"imagens/imagem09.jpg" },
+    { id:"j01", cat:"Sala de Jantar",
+      name:"Mesa de Jantar Extensível Gala", brand:"Sklum",
+      desc:"Oval, 160–200 × 100 cm, MDF e folha de nogueira",
+      total:619.95,
+      url:"https://www.sklum.com/pt/comprar-mesas-de-jantar/175942-mesa-de-jantar-oval-extensivel-160-200x100-cm-em-mdf-e-folha-de-nogueira-gala.html" ,
+      img:"imagens/imagem10.jpg"},
+
+    { id:"j02", cat:"Sala de Jantar",
+      name:"8 Cadeiras Carrie", brand:"Área",
+      desc:"8 cadeiras × 139 €",
+      total:1112,
+      url:"https://areastore.com/collections/cadeiras-e-bancos/products/73774-carrie-cadeira" ,
+      img:"imagens/imagem11.jpg"},
+
+    
+
+    { id:"j04", cat:"Sala de Jantar",
+      name:"Candeeiro de Teto Takai", brand:"Normo",
+      desc:"Pendente suspenso — modelo a definir",
+      total:0,
+      url:"https://www.normo.pt/collections/iluminacao-suspensa/products/takai-30-pendant-lamp-beige-linen?variant=54215703527747" ,
+      img:"imagens/imagem12.jpg"},
+
+    
+
+    { id:"j06", cat:"Sala de Jantar",
+      name:"Faqueiro Cutipol Athena (130 peças)", brand:"Cutipol",
+      desc:"",
+      total:1104.70,
+      url:"https://www.cutipol.pt/pt/shop/faqueiro-130-pcs-athena.html" ,
+      img:"imagens/imagem13.jpg"},
+
+    /* ── QUARTO ── */
+    { id:"q01", cat:"Quarto",
+      name:"Cama com Estrado Elevatório", brand:"La Redoute",
+      desc:"160 cm, com estrado elevatório estofado",
+      total:389.95,
+      url:"https://www.laredoute.pt/ppdp/prod-350349653.aspx" ,
+      img:"imagens/imagem14.jpg"},
+
+    { id:"q01h", cat:"Quarto",
+      name:"Cabeceira Estofada Plains", brand:"Kenay Home",
+      desc:"Removível, 150-160 cm, verde claro",
+      total:0,
+      url:"https://kenayhome.com/pt/20161-plains-cabeceira-estofada-removivel-150-160-verde-claro.html",
+      img:"imagens/imagem15.jpg" },
+
+    
+
+    { id:"q03", cat:"Quarto",
+      name:"Mesas de Cabeceira Yulara (pack de 2)", brand:"Sklum",
+      desc:"Madeira de manga",
+      total:204.95,
+      url:"https://www.sklum.com/pt/comprar-packs-de-mesas-de-cabeceira/205778-pacote-de-2-mesas-de-cabeceira-de-madeira-de-manga-yulara.html" ,
+      img:"imagens/imagem16.jpg"},
+
+    
+
+    
+
+    /* ── COZINHA ── */
+    { id:"q04", cat:"Quarto",
+      name:"Roupeiro Branco", brand:"",
+      desc:"Roupeiro de 4 portas",
+      total:815.2,
+      url:"#" ,
+      img:"imagens/imagem17.jpg" },
+    { id:"k01", cat:"Cozinha",
+      name:"Frigorífico Samsung", brand:"Worten",
+      desc:"No Frost, 203 cm, 387 L, inox",
+      total:830,
+      url:"https://www.worten.pt/produtos/frigorifico-combinado-samsung-rb38t607bs9-ef-no-frost-203-cm-387-l-inox-7800798" ,
+      img:"imagens/imagem18.jpg"},
+
+    { id:"k02", cat:"Cozinha",
+      name:"Trem de Cozinha Tefal Ingenio (13 peças)", brand:"Worten",
+      desc:"Panelas, tachos e utensílios — modelo a definir",
+      total:0,
+      url:"https://www.worten.pt/produtos/set-13-pecas-trem-de-cozinha-tefal-ingenio-unlimited-l7639543-16-20-24-28-cm-7655580" ,
+      img:"imagens/imagem19.jpg"},
+
+    { id:"k03", cat:"Cozinha",
+      name:"Air Fryer Becken", brand:"Worten",
+      desc:"7 litros, preto",
+      total:70,
+      url:"https://www.worten.pt/produtos/fritadeira-sem-oleo-becken-baf9306-7-l-preto-8118216" ,
+      img:"imagens/imagem20.jpg"},
+
+    
+    { id:"k05", cat:"Cozinha",
+      name:"Mesa de Cozinha Resarö", brand:"Ikea",
+      desc:"Abas rebatíveis — medidas a confirmar",
+      total:189,
+      url:"https://www.ikea.com/pt/pt/p/resaroe-mesa-abas-rebativeis-c-arrum-port-pinho-20533337/",
+      img:"imagens/imagem21.jpg"},
+
+    /* ── CASA DE BANHO ── */
+    { id:"k06", cat:"Cozinha",
+      name:"Desumidificador KUBO KBDH4759", brand:"Worten",
+      desc:"Capacidade de extracção: 20 L/dia",
+      total:160,
+      url:"https://www.worten.pt/produtos/desumidificador-kubo-kbdh4759-capacidade-de-extracao-20-l-dia-7200394" ,
+      img:"imagens/imagem22.jpg" },
+    { id:"s06", cat:"Cozinha",
+      name:"Aspirador Rowenta X-Force Flex 15.60", brand:"Worten",
+      desc:"Animal Care, 32.4V, 80 min autonomia, 900 ml",
+      total:430,
+      url:"https://www.worten.pt/produtos/aspirador-vertical-rowenta-x-force-flex-15-60-animal-care-rh99f1wo-32-4-v-autonomia-80-min-900-ml-7583893" ,
+      img:"imagens/imagem23.jpg" },
+    { id:"b01", cat:"Casa de Banho",
+      name:"2 conjuntos de toalhas — Natural Almonda", brand:"Torres Novas",
+      desc:"Algodão natural",
+      total:110,
+      url:"https://www.torresnovas.com/products/natural-almonda?variant=39702710386770" ,
+      img:"imagens/imagem25.jpg"},
+
+    { id:"b02", cat:"Casa de Banho",
+      name:"2 conjuntos de toalhas — Almonda Azul Claro", brand:"Torres Novas",
+      desc:"Alternativa às Natural Almonda",
+      total:110,
+      url:"https://www.torresnovas.com/products/high-quality-almonda-bath-towels-light-blue?variant=33241176244306" ,
+      img:"imagens/imagem26.jpg"},
+
+    
+
+    
+
+    
+
+    /* ── LUA DE MEL ── */
+    { id:"e01", cat:"Escritório",
+      name:"Cadeira Teacher — Couro Castanho", brand:"Maisons du Monde",
+      desc:"Cadeira de escritório com rodas, couro castanho e aço",
+      total:400,
+      url:"https://www.maisonsdumonde.com/PT/pt/p/cadeira-de-escritorio-com-rodas-de-couro-castanho-e-aco-teacher-249950.htm" ,
+      img:"imagens/imagem24.jpg" },
+    { id:"lm01", cat:"Lua de Mel",
+      name:"Dar presente",
+      brand:"México",
+      desc:"",
+      total:0,
+      url:"" }
+  ];
+
+  /* ──────────────────────────────────────
+     Palavra-passe de administração
+     (alterar antes de publicar o site)
+  ────────────────────────────────────── */
+  const ADMIN_PASSWORD = "carmoeze2026";
+
+  /* ── Storage keys ── */
+  const STORE_KEY       = "cjl_gifts_v2";
+  const STORE_TOTALS    = "cjl_totals_v2";
+
+  /* ── Persistence helpers ── */
+  function loadData(key) {
+    try { return JSON.parse(localStorage.getItem(key)) || {}; }
+    catch(e) { return {}; }
+  }
+  function saveData(key, data) {
+    localStorage.setItem(key, JSON.stringify(data));
+  }
+
+  /* ── Currency formatter ── */
+  function eur(val) {
+    return new Intl.NumberFormat("pt-PT", {
+      style:"currency", currency:"EUR", minimumFractionDigits:0, maximumFractionDigits:2
+    }).format(val);
+  }
+
+  /* ── Get effective total (admin override > default) ── */
+  function effectiveTotal(gift) {
+    const overrides = loadData(STORE_TOTALS);
+    return overrides[gift.id] != null ? overrides[gift.id] : gift.total;
+  }
+
+  /* ══════════════════════════════════════
+     RENDER
+  ══════════════════════════════════════ */
+  function renderGifts() {
+    const contributions = loadData(STORE_KEY);
+    const containerLM   = document.getElementById("giftGridLuaMel");
+    const containerCasa = document.getElementById("giftGridCasa");
+    containerLM.innerHTML = "";
+    containerCasa.innerHTML = "";
+
+    /* group by category */
+    const cats = {};
+    GIFTS.forEach(g => {
+      if (!cats[g.cat]) cats[g.cat] = [];
+      cats[g.cat].push(g);
+    });
+
+    Object.entries(cats).forEach(([catName, items]) => {
+      const isLuaMel = catName === "Lua de Mel";
+      const container = isLuaMel ? containerLM : containerCasa;
+      const section = document.createElement("div");
+      section.className = "gift-category";
+      if (!isLuaMel) {
+        section.innerHTML = `<h3>${catName}</h3>`;
+      }
+
+      const grid = document.createElement("div");
+      grid.className = "gift-category-grid";
+      if (isLuaMel) grid.style.justifyContent = "center";
+
+      items.forEach(g => {
+        const contributed = contributions[g.id] || 0;
+        const total       = effectiveTotal(g);
+        const haTotal     = total > 0;
+        const pct         = haTotal ? Math.min(100, Math.round(contributed / total * 100)) : 0;
+        const isComplete  = haTotal && pct >= 100;
+        const isPartial   = haTotal && pct > 0 && pct < 100;
+        const isPending   = !!g.pending;
+
+        const imgHtml = g.img
+          ? `<div class="gift-img-wrap">
+               <img class="gift-product-img" src="${g.img}" alt="${g.name}" />
+             </div>`
+          : '';
+
+        const nameHtml = g.url
+          ? `<a href="${g.url}" target="_blank" rel="noopener" class="gift-name-link">${g.name}</a>`
+          : (g.id === "lm01" && !isComplete && !isPending)
+            ? `<a href="#" class="gift-name-link" style="font-size:1.05rem" onclick="event.preventDefault();openPublicContribute('${g.id}')">${g.name}</a>`
+            : g.name;
+
+        const pctLabel = isComplete ? "Oferecido"
+                       : haTotal    ? `${pct}%`
+                       :              "";
+
+        const progressStr = haTotal
+          ? `<div class="gift-progress-wrap" style="margin-top:.9rem">
+               <div style="display:flex;justify-content:flex-end;margin-bottom:.3rem">
+                 <span style="font-size:.68rem;letter-spacing:.05em;color:${isComplete ? 'var(--teal)' : 'var(--text-mid)'}">${pctLabel}</span>
+               </div>
+               <div class="progress-bar-bg">
+                 <div class="progress-bar-fill" style="width:${pct}%"></div>
+               </div>
+             </div>`
+          : "";
+
+        const pendingNote = isPending
+          ? `<span style="font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-mid);opacity:.55;display:block;margin-top:.6rem">Presente</span>`
+          : "";
+
+        const contribuirBtn = (!isComplete && !isPending && g.id !== "lm01")
+          ? `<button class="gift-contribute-btn" style="margin-top:.8rem;display:block" onclick="openPublicContribute('${g.id}')">Presente →</button>`
+          : "";
+
+        const adminBtn = isAdminMode
+          ? `<button class="gift-contribute-btn" style="margin-top:.4rem;display:block;opacity:.6" onclick="openContribute('${g.id}')">Actualizar (admin) →</button>`
+          : "";
+
+        if (g.id === "lm01") {
+          /* lm01 "Dar presente" is now inside the Mexico photo banner — skip JS rendering */
+          return;
+        }
+        const card = document.createElement("div");
+        card.className = `gift-card ${isComplete ? 'completed' : ''} ${isPending ? 'pending-item' : ''} ${g.img ? 'gift-card-with-img' : ''}`;
+        card.id = `card-${g.id}`;
+        card.innerHTML = `${imgHtml}
+          <div class="gift-name" style="margin-bottom:.15rem">${nameHtml}</div>
+          ${progressStr}${contribuirBtn}${pendingNote}${adminBtn}`;
+        grid.appendChild(card);
+      });
+
+      section.appendChild(grid);
+      container.appendChild(section);
+    });
+  }
+
+  /* ══════════════════════════════════════
+     PUBLIC CONTRIBUTION FORM
+  ══════════════════════════════════════ */
+  let pubGiftId = null;
+
+  function openPublicContribute(giftId) {
+    const gift = GIFTS.find(g => g.id === giftId);
+    if (!gift) return;
+    pubGiftId = giftId;
+
+    document.getElementById("pubGiftName").textContent = gift.name;
+    document.getElementById("pubGiftBrand").textContent = gift.brand || "";
+    document.getElementById("pubName").value    = "";
+    document.getElementById("pubEmail").value   = "";
+    document.getElementById("pubPhone").value   = "";
+    document.getElementById("pubMessage").value = "";
+    document.getElementById("pubError").style.display    = "none";
+    document.getElementById("pubFormWrap").style.display    = "block";
+    document.getElementById("pubSuccessWrap").style.display = "none";
+
+    document.getElementById("publicContributeModal").classList.add("open");
+    setTimeout(() => document.getElementById("pubName").focus(), 120);
+  }
+
+  function closePublicContribute() {
+    document.getElementById("publicContributeModal").classList.remove("open");
+    pubGiftId = null;
+  }
+
+  function submitPublicContribute() {
+    const name = document.getElementById("pubName").value.trim();
+    if (!name) {
+      document.getElementById("pubError").style.display = "block";
+      return;
+    }
+    document.getElementById("pubError").style.display = "none";
+
+    const gift    = GIFTS.find(g => g.id === pubGiftId);
+    const email   = document.getElementById("pubEmail").value.trim();
+    const phone   = document.getElementById("pubPhone").value.trim();
+    const message = document.getElementById("pubMessage").value.trim();
+    const amount  = parseFloat(document.getElementById("pubAmount").value) || 0;
+
+    /* ── Enviar para Google Apps Script se estiver configurado ── */
+    const isLuaMel   = pubGiftId.startsWith("lm");
+    const scriptUrl  = isLuaMel ? LUA_MEL_SCRIPT_URL : NOSSA_CASA_SCRIPT_URL;
+    const configured = scriptUrl !== "COLE_AQUI_O_URL_LUA_DE_MEL" && scriptUrl !== "COLE_AQUI_O_URL_NOSSA_CASA";
+    if (configured) {
+      fetch(scriptUrl, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain" },
+        body: JSON.stringify({
+          giftId:    pubGiftId,
+          giftName:  gift.name,
+          name:      name,
+          amount:    amount,
+          email:     email || "—",
+          phone:     phone || "—",
+          message:   message || "—",
+          timestamp: new Date().toLocaleString("pt-PT")
+        })
+      });
+
+      /* Actualização optimista da barra neste dispositivo */
+      if (amount > 0 && gift.total > 0) {
+        const fill  = document.querySelector(`#card-${pubGiftId} .progress-bar-fill`);
+        const label = document.querySelector(`#card-${pubGiftId} .gift-progress-wrap span`);
+        if (fill) {
+          const currentPct = parseFloat(fill.style.width) || 0;
+          const newPct     = Math.min(100, currentPct + Math.round((amount / gift.total) * 100));
+          fill.style.width = newPct + "%";
+          if (label) label.textContent = newPct + "%";
+        }
+      }
+    }
+
+    document.getElementById("pubFormWrap").style.display    = "none";
+    document.getElementById("pubSuccessWrap").style.display = "block";
+
+    /* Actualizar barras com valores reais do servidor após uns segundos */
+    setTimeout(fetchContributions, 4000);
+  }
+
+  document.getElementById("publicContributeModal").addEventListener("click", function(e) {
+    if (e.target === this) closePublicContribute();
+  });
+
+  /* ══════════════════════════════════════
+     ADMIN MODE
+  ══════════════════════════════════════ */
+  let isAdminMode = false;
+
+  function openAdminModal() {
+    document.getElementById("adminModal").classList.add("open");
+    document.getElementById("adminPass").value = "";
+    document.getElementById("passError").style.display = "none";
+    setTimeout(() => document.getElementById("adminPass").focus(), 100);
+  }
+  function closeAdminModal() {
+    document.getElementById("adminModal").classList.remove("open");
+  }
+  function checkAdminPass() {
+    if (document.getElementById("adminPass").value === ADMIN_PASSWORD) {
+      isAdminMode = true;
+      closeAdminModal();
+      document.querySelector(".admin-toggle button").textContent = "✓ Modo administrador activo";
+      /* activate photo editing UI */
+      document.body.classList.add("admin-photo-mode");
+      const exportBtn = document.getElementById("exportHtmlBtn");
+      if (exportBtn) exportBtn.style.display = "inline-block";
+      renderGifts();
+    } else {
+      document.getElementById("passError").style.display = "block";
+    }
+  }
+
+  /* ── Tab switching ── */
+  function switchGiftTab(tab) {
+    document.querySelectorAll('.gift-tab-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.gift-tab-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById('tab-' + tab).classList.add('active');
+    const btns = document.querySelectorAll('.gift-tab-btn');
+    btns.forEach(btn => {
+      if ((tab === 'lua-mel' && btn.textContent.trim() === 'Lua de Mel') ||
+          (tab === 'nossa-casa' && btn.textContent.trim() === 'A Nossa Casa')) {
+        btn.classList.add('active');
+      }
+    });
+  }
+
+  /* ══════════════════════════════════════
+     CONTRIBUTE / EDIT MODAL
+  ══════════════════════════════════════ */
+  let currentGiftId = null;
+
+  function openContribute(giftId) {
+    const gift = GIFTS.find(g => g.id === giftId);
+    if (!gift) return;
+    const contributions = loadData(STORE_KEY);
+    const current  = contributions[giftId] || 0;
+    const totNow   = effectiveTotal(gift);
+    const noTotal  = totNow === 0;
+
+    currentGiftId = giftId;
+    document.getElementById("contributeGiftName").textContent = gift.name;
+    document.getElementById("contributeGiftDesc").textContent =
+      gift.brand ? gift.brand + (gift.desc ? " · " + gift.desc : "") : gift.desc || "";
+
+    /* show / hide total field */
+    const totalWrap = document.getElementById("totalFieldWrap");
+    totalWrap.style.display = noTotal ? "block" : "none";
+    if (noTotal) {
+      document.getElementById("contributeTotal").value = "";
+    } else {
+      document.getElementById("contributeTotal").value = totNow;
+    }
+
+    document.getElementById("contributeLabel").textContent =
+      `Valor já contribuído (€) — actualmente ${eur(current)}`;
+    document.getElementById("contributeAmount").value = current || "";
+    document.getElementById("contributeModal").classList.add("open");
+    const focusEl = noTotal ? "contributeTotal" : "contributeAmount";
+    setTimeout(() => document.getElementById(focusEl).focus(), 100);
+  }
+  function closeContributeModal() {
+    document.getElementById("contributeModal").classList.remove("open");
+    currentGiftId = null;
+  }
+  function saveContribution() {
+    if (!currentGiftId) return;
+    const gift       = GIFTS.find(g => g.id === currentGiftId);
+    const totNow     = effectiveTotal(gift);
+    const noTotal    = totNow === 0;
+    const newTotal   = parseFloat(document.getElementById("contributeTotal").value) || 0;
+    const newAmount  = parseFloat(document.getElementById("contributeAmount").value) || 0;
+
+    /* save total override if needed */
+    if (noTotal && newTotal > 0) {
+      const totals = loadData(STORE_TOTALS);
+      totals[currentGiftId] = newTotal;
+      saveData(STORE_TOTALS, totals);
+    }
+    /* save contribution */
+    const data = loadData(STORE_KEY);
+    data[currentGiftId] = newAmount;
+    saveData(STORE_KEY, data);
+
+    closeContributeModal();
+  }
+
+  /* close modals on overlay click */
+  ["adminModal","contributeModal"].forEach(id => {
+    document.getElementById(id).addEventListener("click", function(e) {
+      if (e.target === this) {
+        this.classList.remove("open");
+        if (id === "contributeModal") currentGiftId = null;
+      }
+    });
+  });
+
+  /* ══════════════════════════════════════
+     RSVP FORM
+  ══════════════════════════════════════ */
+  /* ── Google Apps Script URL — SUBSTITUIR PELO TEU ── */
+  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyViFteBqmXFxUyvFalM9X8oTpRa1dZkN70oy-NN4Pqcd86g2KBD3KN59XQVs70UOcp/exec";
+
+  /* ── URLs dos Google Apps Scripts para contribuições ── */
+  const LUA_MEL_SCRIPT_URL   = "https://script.google.com/macros/s/AKfycbyhy38iKcxcKEF2idj-bGVd-qycR7ORlyqr1uf8oRrPEW1QHJOo3Oi0bh3ixEgOLYOZ/exec";
+  const NOSSA_CASA_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyxmzf4lK_iAzCk_UKsN2PmIsV-iVM9QhVzl7CF9jXBNhfN-BAUlGgHtZZ4Al16kYXR/exec";
+
+  document.getElementById("rsvpForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const nome     = document.getElementById("nome").value.trim();
+    const email    = document.getElementById("email").value.trim();
+    const presenca = document.getElementById("presenca").value;
+    if (!nome || !email || !presenca) {
+      alert("Por favor preenche todos os campos obrigatórios.");
+      return;
+    }
+    const notas = document.getElementById("notas").value.trim();
+    const btn = this.querySelector("button[type=submit]");
+    btn.textContent = "A enviar…";
+    btn.disabled = true;
+
+    if (GOOGLE_SCRIPT_URL === "COLE_AQUI_O_URL_DO_GOOGLE_APPS_SCRIPT") {
+      /* Fallback: mailto enquanto o Google Script não está configurado */
+      const subject = encodeURIComponent(`RSVP Casamento Carmo & Zé Luís — ${nome}`);
+      const body    = encodeURIComponent(
+        `Nome: ${nome}\nEmail: ${email}\nPresença: ${presenca === 'sim' ? 'Sim ✓' : 'Não ✗'}\nNotas: ${notas || '—'}`
+      );
+      window.location.href = `mailto:jlqueiro@gmail.com,carmoabecasis30@gmail.com?subject=${subject}&body=${body}`;
+      document.getElementById("rsvp-form-wrap").style.display = "none";
+      document.getElementById("rsvp-success").style.display   = "block";
+      return;
+    }
+
+    fetch(GOOGLE_SCRIPT_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "text/plain" },
+      body: JSON.stringify({
+        nome: nome,
+        email: email,
+        presenca: presenca === "sim" ? "Sim ✓" : "Não ✗",
+        notas: notas || "—",
+        timestamp: new Date().toLocaleString("pt-PT")
+      })
+    }).then(function() {
+      document.getElementById("rsvp-form-wrap").style.display = "none";
+      document.getElementById("rsvp-success").style.display   = "block";
+    }).catch(function() {
+      /* Fallback: se o fetch falhar, tenta mailto */
+      const subject = encodeURIComponent(`RSVP Casamento Carmo & Zé Luís — ${nome}`);
+      const body    = encodeURIComponent(
+        `Nome: ${nome}\nEmail: ${email}\nPresença: ${presenca === 'sim' ? 'Sim ✓' : 'Não ✗'}\nNotas: ${notas || '—'}`
+      );
+      window.location.href = `mailto:jlqueiro@gmail.com,carmoabecasis30@gmail.com?subject=${subject}&body=${body}`;
+      document.getElementById("rsvp-form-wrap").style.display = "none";
+      document.getElementById("rsvp-success").style.display   = "block";
+    });
+  });
+
+  /* ══════════════════════════════════════
+     CONTRIBUIÇÕES — actualizar barras ao carregar
+  ══════════════════════════════════════ */
+  function applyTotals(totals) {
+    Object.keys(totals).forEach(function(giftId) {
+      var gift = GIFTS.find(function(g) { return g.id === giftId; });
+      if (!gift || !gift.total) return;
+      var pct  = Math.min(100, Math.round((totals[giftId] / gift.total) * 100));
+      var fill = document.querySelector("#card-" + giftId + " .progress-bar-fill");
+      if (fill) fill.style.width = pct + "%";
+      var label = document.querySelector("#card-" + giftId + " .gift-progress-wrap span");
+      if (label) label.textContent = pct + "%";
+    });
+  }
+
+  function fetchContributions() {
+    if (LUA_MEL_SCRIPT_URL !== "COLE_AQUI_O_URL_LUA_DE_MEL") {
+      fetch(LUA_MEL_SCRIPT_URL)
+        .then(function(r) { return r.json(); })
+        .then(function(data) { applyTotals(data.totals || {}); })
+        .catch(function() {});
+    }
+    if (NOSSA_CASA_SCRIPT_URL !== "COLE_AQUI_O_URL_NOSSA_CASA") {
+      fetch(NOSSA_CASA_SCRIPT_URL)
+        .then(function(r) { return r.json(); })
+        .then(function(data) { applyTotals(data.totals || {}); })
+        .catch(function() {});
+    }
+  }
+  fetchContributions();
+
+  /* ══════════════════════════════════════
+     COUNTDOWN
+  ══════════════════════════════════════ */
+  function updateCountdown() {
+    const diff = new Date("2026-06-20T16:00:00") - new Date();
+    if (diff <= 0) {
+      ["cd-days","cd-hours","cd-mins","cd-secs"].forEach(id =>
+        document.getElementById(id).textContent = "0");
+      return;
+    }
+    document.getElementById("cd-days").textContent  = Math.floor(diff / 86400000);
+    document.getElementById("cd-hours").textContent = String(Math.floor((diff % 86400000) / 3600000)).padStart(2,"0");
+    document.getElementById("cd-mins").textContent  = String(Math.floor((diff % 3600000) / 60000)).padStart(2,"0");
+    document.getElementById("cd-secs").textContent  = String(Math.floor((diff % 60000) / 1000)).padStart(2,"0");
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  /* ── Scroll fade-in ── */
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
+
+  /* ══════════════════════════════════════
+     PHOTO MANAGEMENT SYSTEM
+     ─────────────────────────────────────
+     • Admin-only drag-and-drop interface
+     • Photos stored as base64 in localStorage
+     • All photos persist across page loads
+     • "Download HTML" exports file with photos embedded
+  ══════════════════════════════════════ */
+  const PHOTO_STORE_KEY = "cjl_photos_v1";
+
+  /* Map each slot id → the <img> element that shows the photo */
+  const PHOTO_SLOTS = {
+    "hero-bg":       { imgId: "img-hero-bg",       phId: null         },
+    "banner-odia":   { imgId: "img-banner-odia",   phId: null         },
+    "quinta":        { imgId: "img-quinta",         phId: "ph-quinta"  },
+    "banner-lista":  { imgId: "img-banner-lista",  phId: null         },
+    "nossa-casa":    { imgId: "img-nossa-casa",     phId: null         },
+    "banner-depois": { imgId: "img-banner-depois",  phId: null         },
+    "driver":        { imgId: "img-driver",         phId: "ph-driver"  },
+    "alojamento":    { imgId: "img-alojamento",     phId: "ph-alojamento" },
+    "hero-portrait": { imgId: "img-hero-portrait",  phId: null, wrapId: "hero-portrait-wrap" },
+  };
+
+  function loadPhotos() {
+    try { return JSON.parse(localStorage.getItem(PHOTO_STORE_KEY)) || {}; }
+    catch(e) { return {}; }
+  }
+  function savePhotos(data) {
+    localStorage.setItem(PHOTO_STORE_KEY, JSON.stringify(data));
+  }
+
+  function applyPhoto(slotId, dataUrl) {
+    const slot = PHOTO_SLOTS[slotId];
+    if (!slot) return;
+    const img = document.getElementById(slot.imgId);
+    if (!img) return;
+    img.src = dataUrl;
+    img.style.display = "block";
+    if (slot.phId) {
+      const ph = document.getElementById(slot.phId);
+      if (ph) ph.style.display = "none";
+    }
+    /* show container when portrait photo is set */
+    if (slot.wrapId) {
+      const wrap = document.getElementById(slot.wrapId);
+      if (wrap) wrap.classList.add('has-photo');
+    }
+    /* for hero background */
+    if (slotId === "hero-bg") img.style.display = "block";
+    /* for banners: also remove teal bg gradient */
+    if (slotId.startsWith("banner-") || slotId === "nossa-casa") {
+      const bgEl = img.closest(".photo-banner-bg, .nossa-casa-header");
+      if (bgEl) bgEl.style.background = "none";
+    }
+  }
+
+  function initPhotos() {
+    const photos = loadPhotos();
+    Object.keys(photos).forEach(slotId => {
+      if (photos[slotId]) applyPhoto(slotId, photos[slotId]);
+    });
+  }
+
+  /* ── File reading ── */
+  function readFileAsDataURL(file, callback) {
+    const reader = new FileReader();
+    reader.onload = e => callback(e.target.result);
+    reader.readAsDataURL(file);
+  }
+
+  function setPhotoForSlot(slotId, file) {
+    readFileAsDataURL(file, dataUrl => {
+      applyPhoto(slotId, dataUrl);
+      const photos = loadPhotos();
+      photos[slotId] = dataUrl;
+      try { savePhotos(photos); } catch(e) {
+        /* localStorage full — still apply visually */
+        console.warn("localStorage full; photo not persisted.");
+      }
+    });
+  }
+
+  /* ── Active slot tracker for file input ── */
+  let activeSlotId = null;
+
+  function triggerSlot(slotId) {
+    if (!isAdminMode) return;
+    activeSlotId = slotId;
+    document.getElementById("photoFileInput").click();
+  }
+
+  /* click handler for event-card photo slots */
+  function adminPhotoClick(slotId) {
+    if (!isAdminMode) return;
+    triggerSlot(slotId);
+  }
+
+  function handleFileInputChange(e) {
+    const file = e.target.files[0];
+    if (!file || !activeSlotId) return;
+    setPhotoForSlot(activeSlotId, file);
+    e.target.value = "";
+    activeSlotId = null;
+  }
+
+  /* ── Drag-and-drop for banner / nossa-casa slots ── */
+  function setupSlotDragDrop(el) {
+    const slotId = el.dataset.slot;
+    if (!slotId) return;
+
+    el.addEventListener("dragover", e => {
+      e.preventDefault();
+      el.classList.add("drag-over");
+    });
+    el.addEventListener("dragleave", () => el.classList.remove("drag-over"));
+    el.addEventListener("drop", e => {
+      e.preventDefault();
+      el.classList.remove("drag-over");
+      if (!isAdminMode) return;
+      const file = e.dataTransfer.files[0];
+      if (file && file.type.startsWith("image/")) setPhotoForSlot(slotId, file);
+    });
+    el.addEventListener("click", () => triggerSlot(slotId));
+  }
+
+  /* register all photo-slot-admin elements */
+  document.querySelectorAll(".photo-slot-admin").forEach(setupSlotDragDrop);
+
+  /* ── Export: download HTML with all photos embedded ── */
+  function downloadHtmlWithPhotos() {
+    const photos = loadPhotos();
+    let html = document.documentElement.outerHTML;
+    Object.keys(photos).forEach(slotId => {
+      const slot = PHOTO_SLOTS[slotId];
+      if (!slot || !photos[slotId]) return;
+      /* replace src="" on the specific img element */
+      const safeId = slot.imgId.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      html = html.replace(
+        new RegExp(`(id="${safeId}"[^>]*src=")[^"]*(")`,'g'),
+        `$1${photos[slotId]}$2`
+      );
+    });
+    const blob = new Blob([html], { type: "text/html" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "casamento.html";
+    a.click();
+    URL.revokeObjectURL(a.href);
+  }
+
+  /* add export button to admin toggle area (hidden until admin mode) */
+  (function() {
+    const toggle = document.querySelector(".admin-toggle");
+    if (!toggle) return;
+    const exportBtn = document.createElement("button");
+    exportBtn.id = "exportHtmlBtn";
+    exportBtn.textContent = "⬇ Guardar HTML com fotos";
+    exportBtn.style.cssText = "display:none;margin-top:.8rem;background:var(--teal);color:#fff;border:none;border-radius:3px;padding:.5rem 1.2rem;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;font-family:'Raleway',sans-serif;";
+    exportBtn.onclick = downloadHtmlWithPhotos;
+    toggle.appendChild(exportBtn);
+  })();
+
+  /* ── Initialize ── */
+  renderGifts();
+  initPhotos();
+
+</script>
+
+
+</body></html>
